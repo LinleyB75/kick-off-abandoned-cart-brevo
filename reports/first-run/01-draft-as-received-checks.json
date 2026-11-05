@@ -1,0 +1,371 @@
+{
+  "file": "stages/01-draft-as-received.mjml",
+  "versions": {
+    "mjml": "5.4.1",
+    "axe": "4.14.0"
+  },
+  "strict": {
+    "ok": true,
+    "errors": []
+  },
+  "findings": [
+    {
+      "area": "syntax",
+      "id": "button-no-link",
+      "level": "error",
+      "message": "An mj-button has no link, so it is drawn as a button that goes nowhere.",
+      "line": 99
+    },
+    {
+      "area": "syntax",
+      "id": "social-no-alt",
+      "level": "error",
+      "message": "A social icon link (facebook) has no alt text, so a screen reader announces only \"link\". Add alt=\"Facebook\" or similar.",
+      "line": 128
+    },
+    {
+      "area": "syntax",
+      "id": "social-no-alt",
+      "level": "error",
+      "message": "A social icon link (twitter) has no alt text, so a screen reader announces only \"link\". Add alt=\"Facebook\" or similar.",
+      "line": 129
+    },
+    {
+      "area": "syntax",
+      "id": "social-no-alt",
+      "level": "error",
+      "message": "A social icon link (instagram) has no alt text, so a screen reader announces only \"link\". Add alt=\"Facebook\" or similar.",
+      "line": 130
+    },
+    {
+      "area": "syntax",
+      "id": "social-no-alt",
+      "level": "error",
+      "message": "A social icon link (youtube) has no alt text, so a screen reader announces only \"link\". Add alt=\"Facebook\" or similar.",
+      "line": 131
+    },
+    {
+      "area": "syntax",
+      "id": "no-lang",
+      "level": "warn",
+      "message": "No lang attribute on <mjml>. MJML then writes lang=\"und\", and screen readers have to guess the language.",
+      "line": 1
+    },
+    {
+      "area": "accessibility",
+      "id": "lang-und",
+      "level": "warn",
+      "message": "lang=\"und\" means \"undetermined\". Set the real language so screen readers pronounce the text correctly."
+    },
+    {
+      "area": "accessibility",
+      "id": "colour-scheme-missing",
+      "level": "info",
+      "message": "No color-scheme meta tag. Apps will not know the email was designed for dark mode."
+    },
+    {
+      "area": "accessibility",
+      "id": "image-no-size",
+      "level": "info",
+      "message": "4 image(s) have no width and height, so the layout can jump as they load."
+    },
+    {
+      "area": "accessibility",
+      "id": "link-no-name",
+      "level": "error",
+      "message": "4 link(s) have no accessible name."
+    },
+    {
+      "area": "accessibility",
+      "id": "link-placeholder",
+      "level": "warn",
+      "message": "1 link(s) still point at a placeholder address."
+    },
+    {
+      "area": "size",
+      "id": "size-ok",
+      "level": "info",
+      "message": "37.1 KB, under Gmail's 102 KB clipping limit."
+    },
+    {
+      "area": "accessibility",
+      "id": "overflow-320",
+      "level": "warn",
+      "message": "At 320px wide the email needs sideways scrolling."
+    },
+    {
+      "area": "contrast",
+      "id": "contrast-fail",
+      "level": "error",
+      "message": "[light] #ffa500 on #4c78a3 is 2.35:1, needs 4.5:1 (\"Kick Off Your English\", 1 element(s))."
+    },
+    {
+      "area": "contrast",
+      "id": "contrast-fail",
+      "level": "error",
+      "message": "[light] #ffd166 on #4c78a3 is 3.22:1, needs 4.5:1 (\"© Kick Off Your English 1 Rua Des Bambous, F\", 2 element(s))."
+    },
+    {
+      "area": "contrast",
+      "id": "contrast-fail",
+      "level": "error",
+      "message": "[dark] #ffa500 on #4c78a3 is 2.35:1, needs 4.5:1 (\"Kick Off Your English\", 1 element(s))."
+    },
+    {
+      "area": "contrast",
+      "id": "contrast-fail",
+      "level": "error",
+      "message": "[dark] #ffd166 on #4c78a3 is 3.22:1, needs 4.5:1 (\"© Kick Off Your English 1 Rua Des Bambous, F\", 2 element(s))."
+    },
+    {
+      "area": "accessibility",
+      "id": "axe-color-contrast",
+      "level": "info",
+      "message": "[axe, light] Elements must meet minimum color contrast ratio thresholds (3 element(s))."
+    },
+    {
+      "area": "accessibility",
+      "id": "axe-link-name",
+      "level": "error",
+      "message": "[axe, light] Links must have discernible text (4 element(s))."
+    },
+    {
+      "area": "accessibility",
+      "id": "axe-color-contrast",
+      "level": "info",
+      "message": "[axe, dark] Elements must meet minimum color contrast ratio thresholds (3 element(s))."
+    },
+    {
+      "area": "accessibility",
+      "id": "axe-link-name",
+      "level": "error",
+      "message": "[axe, dark] Links must have discernible text (4 element(s))."
+    }
+  ],
+  "contrast": {
+    "light": [
+      {
+        "fg": "#ffa500",
+        "bg": "#4c78a3",
+        "ratio": 2.35,
+        "large": false,
+        "size": 15,
+        "count": 1,
+        "sample": "Kick Off Your English",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#ffd166",
+        "bg": "#4c78a3",
+        "ratio": 3.22,
+        "large": false,
+        "size": 15,
+        "count": 2,
+        "sample": "© Kick Off Your English 1 Rua Des Bambous, F",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#ffffff",
+        "bg": "#4c78a3",
+        "ratio": 4.64,
+        "large": false,
+        "size": 15,
+        "count": 7,
+        "sample": "Data Privacy | WebView | Contact Us",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#ffffff",
+        "bg": "#0055ff",
+        "ratio": 5.61,
+        "large": true,
+        "size": 20,
+        "count": 1,
+        "sample": "Return to Your Cart",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#000000",
+        "bg": "#ee7226",
+        "ratio": 7.07,
+        "large": false,
+        "size": 16,
+        "count": 1,
+        "sample": "Follow us on:",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#333333",
+        "bg": "#ffffff",
+        "ratio": 12.63,
+        "large": true,
+        "size": 24,
+        "count": 2,
+        "sample": "Still Want This Product ?💡",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#000000",
+        "bg": "#f0f0f0",
+        "ratio": 18.43,
+        "large": true,
+        "size": 21.06,
+        "count": 1,
+        "sample": "Item Description:",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#000000",
+        "bg": "#f0f0f0",
+        "ratio": 18.43,
+        "large": false,
+        "size": 18,
+        "count": 3,
+        "sample": "Kick Off Your English Ebook CAT01",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#000000",
+        "bg": "#ffffff",
+        "ratio": 21,
+        "large": true,
+        "size": 22,
+        "count": 1,
+        "sample": "Your Cart Linley... below",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#000000",
+        "bg": "#ffffff",
+        "ratio": 21,
+        "large": false,
+        "size": 18,
+        "count": 3,
+        "sample": "If you would like to return to your cart ple",
+        "image": false,
+        "isLink": false
+      }
+    ],
+    "dark": [
+      {
+        "fg": "#ffa500",
+        "bg": "#4c78a3",
+        "ratio": 2.35,
+        "large": false,
+        "size": 15,
+        "count": 1,
+        "sample": "Kick Off Your English",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#ffd166",
+        "bg": "#4c78a3",
+        "ratio": 3.22,
+        "large": false,
+        "size": 15,
+        "count": 2,
+        "sample": "© Kick Off Your English 1 Rua Des Bambous, F",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#ffffff",
+        "bg": "#4c78a3",
+        "ratio": 4.64,
+        "large": false,
+        "size": 15,
+        "count": 7,
+        "sample": "Data Privacy | WebView | Contact Us",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#ffffff",
+        "bg": "#0055ff",
+        "ratio": 5.61,
+        "large": true,
+        "size": 20,
+        "count": 1,
+        "sample": "Return to Your Cart",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#000000",
+        "bg": "#ee7226",
+        "ratio": 7.07,
+        "large": false,
+        "size": 16,
+        "count": 1,
+        "sample": "Follow us on:",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#333333",
+        "bg": "#ffffff",
+        "ratio": 12.63,
+        "large": true,
+        "size": 24,
+        "count": 2,
+        "sample": "Still Want This Product ?💡",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#000000",
+        "bg": "#f0f0f0",
+        "ratio": 18.43,
+        "large": true,
+        "size": 21.06,
+        "count": 1,
+        "sample": "Item Description:",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#000000",
+        "bg": "#f0f0f0",
+        "ratio": 18.43,
+        "large": false,
+        "size": 18,
+        "count": 3,
+        "sample": "Kick Off Your English Ebook CAT01",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#000000",
+        "bg": "#ffffff",
+        "ratio": 21,
+        "large": true,
+        "size": 22,
+        "count": 1,
+        "sample": "Your Cart Linley... below",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#000000",
+        "bg": "#ffffff",
+        "ratio": 21,
+        "large": false,
+        "size": 18,
+        "count": 3,
+        "sample": "If you would like to return to your cart ple",
+        "image": false,
+        "isLink": false
+      }
+    ]
+  }
+}

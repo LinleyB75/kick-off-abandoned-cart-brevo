@@ -6,12 +6,12 @@ Run on 2026-11-05. MJML 5.4.1, axe-core 4.14.0, Chromium for the browser checks.
 
 | Area | Errors | Warnings | Notes |
 | --- | --- | --- | --- |
-| Syntax | 10 | 6 | 1 |
-| Accessibility | 5 | 5 | 5 |
+| Syntax | 10 | 7 | 1 |
+| Accessibility | 5 | 5 | 6 |
 | Contrast | 2 | 0 | 0 |
 | Size | 0 | 0 | 1 |
 
-**Result: FAIL.** 17 error(s), 11 warning(s).
+**Result: FAIL.** 17 error(s), 12 warning(s).
 
 ## 1. Syntax
 
@@ -32,6 +32,7 @@ Checks on the source that a strict build does not make:
 | 12 | error | repeated-attribute | <mj-button> repeats the attribute "background-color". Only the first one is used, so the second is silently ignored. |
 | 12 | warn | placeholder-link | A link still points at a placeholder address (https://example.com/pay). |
 | 13 | error | button-no-link | An mj-button has no link, so it is drawn as a button that goes nowhere. |
+| 14 | warn | social-share-link | The "facebook" icon makes a share link, not a link to your page. Use name="facebook-noshare" to link to your own page. |
 | 14 | error | social-no-alt | A social icon link (facebook) has no alt text, so a screen reader announces only "link". Add alt="Facebook" or similar. |
 | 14 | warn | placeholder-link | A link still points at a placeholder address (https://example.com/f). |
 | 1 | error | unclosed-tag | <mjml> is never closed. |
@@ -53,6 +54,7 @@ Checks on the source that a strict build does not make:
 | info | colour-scheme-missing | No color-scheme meta tag. Apps will not know the email was designed for dark mode. |
 | warn | image-alt-filename | 1 image(s) use a file name as alt text. |
 | info | image-no-size | 1 image(s) have no width and height, so the layout can jump as they load. |
+| info | no-unsubscribe | No unsubscribe link. Marketing emails usually need one. Transactional emails usually do not. Check the rules where your customers are. |
 | error | link-no-name | 1 link(s) have no accessible name. |
 | warn | link-placeholder | 2 link(s) still point at a placeholder address. |
 | info | no-headings | No headings. Screen reader users skim by heading, so a short email can still benefit from one. |

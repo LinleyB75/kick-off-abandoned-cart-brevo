@@ -1,0 +1,177 @@
+<mjml>
+  <mj-head>
+    <mj-preview>Something in your cart, still interested?</mj-preview>
+    <!-- Title -->
+    <mj-title>Mens CATS58 Model Frameler, you can still have it.</mj-title>
+
+    <!-- Media queries / Custom CSS -->
+    <mj-style inline="inline">
+      .button {
+      width: auto !important;
+      display: flex !important;
+      text-align: center !important;
+      }
+
+      @media screen and (max-width: 767px) {
+      .mobile-center {
+      text-align: center !important;
+      }
+      }
+    </mj-style>
+  </mj-head>
+
+  <mj-body background-color="#dfe0e7">
+    <!-- Logo Section -->
+    <mj-section padding="0">
+      <mj-column background-color="#fff" padding="0" width="100%">
+
+        <mj-image src="https://res.cloudinary.com/xrzqkwov/image/upload/Gemini_Generated_Image_ehknlgehknlgehkn.png" alt="Frameler Brand Logo" width="280px" border="0" padding="10px" css-class="responsive-image" border-radius="15px" />
+
+      </mj-column>
+    </mj-section>
+
+    <mj-section background-color="#FFF" padding="0px">
+      <mj-column padding="0px">
+
+        <mj-image src="https://res.cloudinary.com/xrzqkwov/image/upload/Kick-Off_Your_English_Cart_Reminder1.png" alt="Cart Reminder Banner" border="0" padding="0" width="600px" css-class="responsive-image" />
+
+        <mj-text align="center" color="#333" font-family="Georgia, serif" font-size="30px" padding-top="25px"><strong>Still Want This Product ?💡</strong></mj-text>
+
+      </mj-column>
+    </mj-section>
+    <!-- End of Logo Section -->
+
+    <mj-section background-color="#FFF" border="0" padding="15px">
+      <mj-column width="500px">
+
+        <mj-image align="center" width="180px" src="https://res.cloudinary.com/xrzqkwov/image/upload/Glossy_Fast_Shopping_Cart_Icon1.png" alt="Shopping cart icon" border="0" />
+
+        <mj-text color="#333" align="center" font-family="Georgia, serif" font-size="24px">You still have items in your shopping cart</mj-text>
+
+      </mj-column>
+    </mj-section>
+
+    <!-- Main text info-->
+    <mj-section padding="30px" background-color="orange">
+      <mj-column width="100%" background-color="#FFF" border-radius="8px">
+
+        <mj-text align="center" font-family="Georgia, serif" font-size="22px" color="#000" line-height="1.5"><strong>Your Cart Linley... below</strong></mj-text>
+
+      </mj-column>
+    </mj-section>
+
+    <mj-section padding="10px" background-color="#F0F0F0">
+      <mj-column width="33%" background-color="#F0F0F0">
+
+        <mj-image width="200px" src="https://res.cloudinary.com/xrzqkwov/image/upload/Screenshot_2024-04-04_094501.png" alt="Kick Off Your English Ebook Product Image" border="0" padding="40px 10px 10px 10px" css-class="responsive-image" />
+
+      </mj-column>
+      <mj-column width="33%" background-color="#F0F0F0">
+
+        <mj-text font-size="18px" line-height="1.6">
+          <h3>Item Description:</h3>
+          <p>Kick Off Your English Ebook CAT01</p>
+          <p class="price">Price<br>$19.99 AUD</p>
+        </mj-text>
+
+      </mj-column>
+      <mj-column width="33%" background-color="#F0F0F0">
+
+        <mj-text padding-top="35px" align="center" font-size="18px" line-height="1.5">
+          Quantity:<br>&nbsp;1
+        </mj-text>
+
+      </mj-column>
+    </mj-section>
+
+    <mj-section padding="0">
+      <mj-column width="100%" background-color="#FFF" padding="30px">
+
+        <mj-text align="left" font-size="18px" line-height="1.6" font-family="Georgia, serif" color="#000" padding="0px" font-weight="bold">
+          If you would like to return to your cart please click on the button below.
+        </mj-text>
+
+      </mj-column>
+
+      <!-- Responsive Button Update -->
+      <mj-column width="100%" background-color="#FFF" padding="15px 30px">
+
+        <mj-button css-class="button" align="left" background-color="#0055FF" color="#fff" font-size="20px" border-radius="12px" font-family="Tahoma, serif" font-weight="bold" padding="0" border="0" inner-padding="20px 35px" line-height="1.5" width="380px">
+          Return to Your Cart
+        </mj-button>
+
+      </mj-column>
+
+      <mj-column width="100%" background-color="#FFF">
+
+        <mj-text align="left" font-size="18px" line-height="1.5" font-family="Georgia, serif" color="#000" padding="35px">
+          If you have questions please do not hesitate to contact us or just reply to this email, or contact: 📩<a href="mailto:support@example.com" style="text-decoration: underline; color: #000;"> support@example.com</a>
+        </mj-text>
+
+      </mj-column>
+    </mj-section>
+
+    <!-- Address and social links -->
+    <mj-section background-color="#ee7226" padding-bottom="5px" padding-top="40px">
+      <mj-column width="100%">
+        <!-- High Contrast Dark Text Fix -->
+
+        <mj-text align="center" font-size="16px" font-family="Georgia, serif" padding="0" color="#000000" line-height="1.5"><strong>Follow us on:</strong></mj-text>
+
+      </mj-column>
+    </mj-section>
+
+    <mj-section padding="10px" border="0" background-color="#ee7226">
+      <mj-column background-color="#ee7226" padding-top="5px" padding-bottom="0" padding-left="5px" padding-right="5px" width="100%">
+
+        <mj-social font-size="18px" icon-size="36px" mode="horizontal" padding-top="0" padding-bottom="0" padding-left="25px" padding-right="25px">
+          <mj-social-element name="facebook" href="your-facebook-link" background-color="#ee7226" color="#000"></mj-social-element>
+          <mj-social-element name="twitter" href="your-twitter-link" background-color="#ee7226" color="#000"></mj-social-element>
+          <mj-social-element name="instagram" href="your-instagram-link" background-color="#ee7226" color="#000"></mj-social-element>
+          <mj-social-element name="youtube" href="your-youtube-link" background-color="#ee7226" color="#000"></mj-social-element>
+        </mj-social>
+
+      </mj-column>
+    </mj-section>
+
+    <mj-section background-color="#4c78a3" padding="0px">
+      <mj-column width="100%">
+
+        <mj-text align="center" font-size="16px" color="#fff">
+          <p><a href="#data-privacy" style="text-decoration: none; color: #FFF;">Data Privacy</a> | <a href="#home" style="text-decoration: none; color: #FFF;">WebView</a> | <a href="#contact-us" style="text-decoration: none; color: #FFF;">Contact Us</a></p>
+        </mj-text>
+
+      </mj-column>
+    </mj-section>
+
+    <mj-section background-color="#4c78a3" padding="0px 0px 20px 0px">
+      <mj-column width="40%">
+
+        <mj-image src="https://res.cloudinary.com/xrzqkwov/image/upload/Gemini_Generated_Image_ehknlgehknlgehkn.png" alt="Frameler Logo" border="0" padding="20px" css-class="responsive-image" width="150px" align="right" />
+
+      </mj-column>
+      <mj-column width="60%">
+        <!-- High Contrast Yellow-Gold Text Fix -->
+
+        <mj-text padding-top="45px" font-size="15px" align="left" color="#FFD166" line-height="1.6">
+          <strong>&copy; Kick Off Your English</strong><br>
+          1 Rua Des Bambous, Fortaleza, Ceara 80001, Brazil<br>
+          Tel + 55 788 07 8124
+        </mj-text>
+
+      </mj-column>
+    </mj-section>
+
+    <mj-section background-color="#4c78a3" padding="0px 0px 20px 0px">
+      <mj-column>
+
+        <mj-text padding-top="0px" font-size="15px" align="center" color="#FFF" line-height="1.6">
+          <span style="color: orange;">Kick Off Your English</span> is brought to you by <strong>&copy; <a href="https://www.geoenglish.com.br/" style="color: white; text-decoration: underline;">Geo English</a></strong><br>
+        </mj-text>
+
+        <mj-image src="https://res.cloudinary.com/xrzqkwov/image/upload/Screenshot_2024-04-04_095719.png" alt="Geo English Badge" border="0" padding="5px" css-class="responsive-image" width="60px" height="60px" border-radius="60px" />
+
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

@@ -64,6 +64,13 @@
     },
     {
       "area": "syntax",
+      "id": "social-share-link",
+      "level": "warn",
+      "message": "The \"facebook\" icon makes a share link, not a link to your page. Use name=\"facebook-noshare\" to link to your own page.",
+      "line": 14
+    },
+    {
+      "area": "syntax",
       "id": "social-no-alt",
       "level": "error",
       "message": "A social icon link (facebook) has no alt text, so a screen reader announces only \"link\". Add alt=\"Facebook\" or similar.",
@@ -168,6 +175,12 @@
       "id": "image-no-size",
       "level": "info",
       "message": "1 image(s) have no width and height, so the layout can jump as they load."
+    },
+    {
+      "area": "accessibility",
+      "id": "no-unsubscribe",
+      "level": "info",
+      "message": "No unsubscribe link. Marketing emails usually need one. Transactional emails usually do not. Check the rules where your customers are."
     },
     {
       "area": "accessibility",
