@@ -1,0 +1,315 @@
+{
+  "file": "stages/02-fixed.mjml",
+  "versions": {
+    "mjml": "5.4.1",
+    "axe": "4.14.0"
+  },
+  "strict": {
+    "ok": true,
+    "errors": []
+  },
+  "findings": [
+    {
+      "area": "syntax",
+      "id": "placeholder-link",
+      "level": "warn",
+      "message": "A link still points at a placeholder address (https://example.com/cart).",
+      "line": 93
+    },
+    {
+      "area": "syntax",
+      "id": "placeholder-link",
+      "level": "warn",
+      "message": "A link still points at a placeholder address (https://example.com/facebook).",
+      "line": 122
+    },
+    {
+      "area": "syntax",
+      "id": "placeholder-link",
+      "level": "warn",
+      "message": "A link still points at a placeholder address (https://example.com/twitter).",
+      "line": 123
+    },
+    {
+      "area": "syntax",
+      "id": "placeholder-link",
+      "level": "warn",
+      "message": "A link still points at a placeholder address (https://example.com/instagram).",
+      "line": 124
+    },
+    {
+      "area": "syntax",
+      "id": "placeholder-link",
+      "level": "warn",
+      "message": "A link still points at a placeholder address (https://example.com/youtube).",
+      "line": 125
+    },
+    {
+      "area": "syntax",
+      "id": "placeholder-link",
+      "level": "warn",
+      "message": "A link still points at a placeholder address (https://example.com/privacy).",
+      "line": 135
+    },
+    {
+      "area": "syntax",
+      "id": "placeholder-link",
+      "level": "warn",
+      "message": "A link still points at a placeholder address (https://example.com/web-version).",
+      "line": 135
+    },
+    {
+      "area": "syntax",
+      "id": "placeholder-link",
+      "level": "warn",
+      "message": "A link still points at a placeholder address (https://example.com/contact).",
+      "line": 135
+    },
+    {
+      "area": "accessibility",
+      "id": "colour-scheme-missing",
+      "level": "info",
+      "message": "No color-scheme meta tag. Apps will not know the email was designed for dark mode."
+    },
+    {
+      "area": "accessibility",
+      "id": "image-no-size",
+      "level": "info",
+      "message": "4 image(s) have no width and height, so the layout can jump as they load."
+    },
+    {
+      "area": "accessibility",
+      "id": "emoji",
+      "level": "info",
+      "message": "Emoji in the text (💡 📩). Screen readers read each one aloud by name, for example \"light bulb\"."
+    },
+    {
+      "area": "accessibility",
+      "id": "no-unsubscribe",
+      "level": "info",
+      "message": "No unsubscribe link. Marketing emails usually need one. Transactional emails usually do not. Check the rules where your customers are."
+    },
+    {
+      "area": "accessibility",
+      "id": "link-placeholder",
+      "level": "warn",
+      "message": "8 link(s) still point at a placeholder address."
+    },
+    {
+      "area": "accessibility",
+      "id": "heading-start",
+      "level": "info",
+      "message": "The first heading is an h3 (\"Item Description:\"). Start at h1 or h2 so the order makes sense."
+    },
+    {
+      "area": "size",
+      "id": "size-ok",
+      "level": "info",
+      "message": "37.1 KB, under Gmail's 102 KB clipping limit."
+    }
+  ],
+  "contrast": {
+    "light": [
+      {
+        "fg": "#ffd166",
+        "bg": "#35597f",
+        "ratio": 5.05,
+        "large": false,
+        "size": 15,
+        "count": 3,
+        "sample": "© Kick Off Your English 1 Rua Des Bambous, F",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#ffffff",
+        "bg": "#0055ff",
+        "ratio": 5.61,
+        "large": true,
+        "size": 20,
+        "count": 1,
+        "sample": "Return to Your Cart",
+        "image": false,
+        "isLink": true
+      },
+      {
+        "fg": "#000000",
+        "bg": "#ee7226",
+        "ratio": 7.07,
+        "large": false,
+        "size": 16,
+        "count": 1,
+        "sample": "Follow us on:",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#ffffff",
+        "bg": "#35597f",
+        "ratio": 7.27,
+        "large": false,
+        "size": 15,
+        "count": 7,
+        "sample": "Data Privacy | WebView | Contact Us",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#333333",
+        "bg": "#ffffff",
+        "ratio": 12.63,
+        "large": true,
+        "size": 24,
+        "count": 2,
+        "sample": "Still Want This Product?💡",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#000000",
+        "bg": "#f0f0f0",
+        "ratio": 18.43,
+        "large": true,
+        "size": 21.06,
+        "count": 1,
+        "sample": "Item Description:",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#000000",
+        "bg": "#f0f0f0",
+        "ratio": 18.43,
+        "large": false,
+        "size": 18,
+        "count": 3,
+        "sample": "Kick Off Your English Ebook CAT01",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#000000",
+        "bg": "#ffffff",
+        "ratio": 21,
+        "large": true,
+        "size": 22,
+        "count": 1,
+        "sample": "Your Cart Linley... below",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#000000",
+        "bg": "#ffffff",
+        "ratio": 21,
+        "large": false,
+        "size": 18,
+        "count": 3,
+        "sample": "If you would like to return to your cart ple",
+        "image": false,
+        "isLink": false
+      }
+    ],
+    "dark": [
+      {
+        "fg": "#ffd166",
+        "bg": "#35597f",
+        "ratio": 5.05,
+        "large": false,
+        "size": 15,
+        "count": 3,
+        "sample": "© Kick Off Your English 1 Rua Des Bambous, F",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#ffffff",
+        "bg": "#0055ff",
+        "ratio": 5.61,
+        "large": true,
+        "size": 20,
+        "count": 1,
+        "sample": "Return to Your Cart",
+        "image": false,
+        "isLink": true
+      },
+      {
+        "fg": "#000000",
+        "bg": "#ee7226",
+        "ratio": 7.07,
+        "large": false,
+        "size": 16,
+        "count": 1,
+        "sample": "Follow us on:",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#ffffff",
+        "bg": "#35597f",
+        "ratio": 7.27,
+        "large": false,
+        "size": 15,
+        "count": 7,
+        "sample": "Data Privacy | WebView | Contact Us",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#333333",
+        "bg": "#ffffff",
+        "ratio": 12.63,
+        "large": true,
+        "size": 24,
+        "count": 2,
+        "sample": "Still Want This Product?💡",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#000000",
+        "bg": "#f0f0f0",
+        "ratio": 18.43,
+        "large": true,
+        "size": 21.06,
+        "count": 1,
+        "sample": "Item Description:",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#000000",
+        "bg": "#f0f0f0",
+        "ratio": 18.43,
+        "large": false,
+        "size": 18,
+        "count": 3,
+        "sample": "Kick Off Your English Ebook CAT01",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#000000",
+        "bg": "#ffffff",
+        "ratio": 21,
+        "large": true,
+        "size": 22,
+        "count": 1,
+        "sample": "Your Cart Linley... below",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#000000",
+        "bg": "#ffffff",
+        "ratio": 21,
+        "large": false,
+        "size": 18,
+        "count": 3,
+        "sample": "If you would like to return to your cart ple",
+        "image": false,
+        "isLink": false
+      }
+    ]
+  }
+}
