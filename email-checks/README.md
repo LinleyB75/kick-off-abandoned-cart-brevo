@@ -28,8 +28,8 @@ node email-checks/palette.js "#0b0b0c" "#ffffff" "#0057d8" --min 4.5
 
 | Area | What |
 | --- | --- |
-| Syntax | The MJML strict build, then source checks that strict mode does not make: unclosed and unexpected closing tags, repeated attributes, buttons with no link, social icons with no alt text, colours with no `#`, invalid units, file names used as alt text, links that point at a placeholder, `#` or http, `<br></br>`, `!important` typos, unbalanced style braces, no `lang`, no title |
-| Accessibility | The built email in Chromium, in light and dark mode and at 320px. 24 axe-core rules that apply to email, plus language, title, alt text, link names, layout tables, headings, small text and sideways scrolling |
+| Syntax | The MJML strict build, then 25 source checks that strict mode does not make: unclosed and unexpected closing tags, repeated attributes, buttons with no link, social icons with no alt text, icons that make share links, colours with no `#`, invalid units, file names used as alt text, links that cannot work in an email (`#home`, `your-link`, http, placeholders), a sans-serif font that falls back to serif and the reverse, `<br></br>`, `!important` typos, unbalanced style braces, no `lang`, no title |
+| Accessibility | The built email in Chromium, in light and dark mode and at 320px. 24 axe-core rules that apply to email, plus language, title, alt text, link names, layout tables, headings, small text, emoji, a missing unsubscribe link and sideways scrolling |
 | Contrast | Every piece of text against the background it really sits on, in light and dark mode. 4.5:1 for normal text, 3:1 for large text (24px, or 18.66px and bold). Text over a background image is flagged, not measured |
 | Size | The built HTML against Gmail's clipping limit of about 102 KB |
 
@@ -45,7 +45,7 @@ Tested with MJML 5.4.1, strict mode accepted a missing `</mj-body>`, a repeated 
 
 ## Tested against
 
-A deliberately broken email, in `example/`, with the report it produced: 17 errors and 11 warnings from 21 different checks.
+A deliberately broken email, in `example/`, with the report it produced: 17 errors and 12 warnings from 22 different checks.
 
 ## If Chromium is somewhere else
 

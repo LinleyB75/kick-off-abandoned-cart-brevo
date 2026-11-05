@@ -39,9 +39,22 @@ function checkSource(src) {
         else if (attrs.alt.trim() !== '' && FILE_LIKE_ALT.test(attrs.alt)) add('image-alt-filename', 'warn', `An mj-image uses a file name as its alt text ("${attrs.alt.slice(0, 40)}"). A screen reader will read it out.`, m.index);
         else if (attrs.alt.trim() === '') add('image-alt-empty', 'info', 'An mj-image has empty alt text, which is right only for a purely decorative image.', m.index);
       }
+      if (name === 'mj-social-element' && /^(facebook|twitter|google|pinterest|linkedin|tumblr|xing)$/.test((attrs.name || '').toLowerCase())) add('social-share-link', 'warn', `The "${attrs.name}" icon makes a share link, not a link to your page. Use name="${attrs.name}-noshare" to link to your own page.`, m.index);
       if (name === 'mj-social-element' && (attrs.alt == null || attrs.alt.trim() === '') && /^\s*$/.test(src.slice(m.index + m[0].length).split('<')[0])) add('social-no-alt', 'error', `A social icon link (${attrs.name || 'icon'}) has no alt text, so a screen reader announces only "link". Add alt="Facebook" or similar.`, m.index);
       if (attrs.href !== undefined && /^https?:\/\/(www\.)?example\.(com|org|net)/i.test(attrs.href)) add('placeholder-link', 'warn', `A link still points at a placeholder address (${attrs.href.slice(0, 50)}).`, m.index);
-      if (attrs.href !== undefined && attrs.href.trim() === '#') add('empty-link', 'warn', 'A link points at "#", which goes nowhere.', m.index);
+      if (attrs.href !== undefined) {
+        const h = attrs.href.trim();
+        if (h === '#') add('empty-link', 'error', 'A link points at "#", which goes nowhere.', m.index);
+        else if (/^\{\{|^\{%/.test(h)) { /* a dynamic value filled in at send time */ }
+        else if (h.startsWith('#')) add('link-fragment', 'error', `A link points at "${h}". A link to a spot on the page goes nowhere in an email. Use a full https:// address.`, m.index);
+        else if (h && !/^(https?:\/\/|mailto:|tel:|sms:)/i.test(h)) add('link-not-absolute', 'error', `A link uses "${h.slice(0, 40)}", which is not a full address, so it cannot work in an email. Use a full https:// address.`, m.index);
+      }
+      if (attrs['font-family']) {
+        const parts = attrs['font-family'].split(',').map(x => x.trim().replace(/['"]/g, '').toLowerCase()), first = parts[0], last = parts[parts.length - 1];
+        const SANS = ['tahoma', 'verdana', 'arial', 'helvetica', 'trebuchet ms', 'calibri', 'segoe ui', 'ubuntu', 'roboto', 'open sans'], SERIF = ['georgia', 'times new roman', 'times', 'garamond', 'cambria', 'palatino'];
+        if (SANS.includes(first) && last === 'serif') add('font-fallback', 'warn', `font-family "${attrs['font-family']}" is a sans-serif font that falls back to serif. If it is missing, the text switches to a serif face. End the list with sans-serif.`, m.index);
+        if (SERIF.includes(first) && last === 'sans-serif') add('font-fallback', 'warn', `font-family "${attrs['font-family']}" is a serif font that falls back to sans-serif. End the list with serif.`, m.index);
+      }
       if (attrs.href !== undefined && /^http:\/\//i.test(attrs.href)) add('link-not-https', 'warn', `A link uses http, not https (${attrs.href.slice(0, 50)}).`, m.index);
       if (isMj && !selfClose && !VOIDISH.has(name)) stack.push({ name, index: m.index });
     } else if (isMj) {

@@ -55,6 +55,7 @@ function pageFacts() {
     layoutTables: [...document.querySelectorAll('table')].filter(t => !t.querySelector('th') && t.getAttribute('role') !== 'presentation').length,
     headings: [...document.querySelectorAll('h1,h2,h3,h4,h5,h6')].map(h => ({ level: +h.tagName[1], text: text(h).slice(0, 50) })),
     overflowX: document.documentElement.scrollWidth > window.innerWidth + 1,
+    emoji: [...new Set((document.body.innerText.match(/\p{Extended_Pictographic}/gu) || []))].filter(e => !'\u00a9\u00ae\u2122'.includes(e)),
   };
 }
 
@@ -87,7 +88,12 @@ function factFindings(facts, htmlBytes, contrastLight) {
   bad(i => i.alt && /\.(png|jpe?g|webp|gif)$|screenshot|gemini|dall-?e|\d{6,}/i.test(i.alt), 'image-alt-filename', 'warn', 'image(s) use a file name as alt text.');
   bad(i => !i.w || !i.h, 'image-no-size', 'info', 'image(s) have no width and height, so the layout can jump as they load.');
   const named = l => l.text || l.label || l.imgAlt;
+  const dyn = h => /^\{\{|^\{%/.test(h);
   const nL = facts.links.filter(l => !l.href || l.href === '#').length; if (nL) add('link-empty', 'error', `${nL} link(s) have an empty or "#" address.`);
+  const nF = facts.links.filter(l => l.href.startsWith('#') && l.href !== '#').length; if (nF) add('link-fragment', 'error', `${nF} link(s) point at a spot on the page (#...), which goes nowhere in an email.`);
+  const nR = facts.links.filter(l => l.href && !l.href.startsWith('#') && !dyn(l.href) && !/^(https?:|mailto:|tel:|sms:)/i.test(l.href)).length; if (nR) add('link-not-absolute', 'error', `${nR} link(s) are not full addresses (for example "your-facebook-link"), so they cannot work in an email.`);
+  if (facts.emoji.length) add('emoji', 'info', `Emoji in the text (${facts.emoji.join(' ')}). Screen readers read each one aloud by name, for example "light bulb".`);
+  if (!facts.links.some(l => /unsubscribe|manage (your )?(email )?preferences|opt.?out/i.test(l.text))) add('no-unsubscribe', 'info', 'No unsubscribe link. Marketing emails usually need one. Transactional emails usually do not. Check the rules where your customers are.');
   const nN = facts.links.filter(l => l.href && !named(l)).length; if (nN) add('link-no-name', 'error', `${nN} link(s) have no accessible name.`);
   const nG = facts.links.filter(l => /^(click here|here|read more|more|link|learn more)$/i.test(l.text)).length; if (nG) add('link-generic', 'warn', `${nG} link(s) say only "here" or "read more", which means nothing out of context.`);
   const nP = facts.links.filter(l => /example\.(com|org|net)/i.test(l.href)).length; if (nP) add('link-placeholder', 'warn', `${nP} link(s) still point at a placeholder address.`);
@@ -95,6 +101,7 @@ function factFindings(facts, htmlBytes, contrastLight) {
   const byText = {}; for (const l of facts.links) if (l.text && l.href) (byText[l.text.toLowerCase()] = byText[l.text.toLowerCase()] || new Set()).add(l.href);
   const amb = Object.entries(byText).filter(([, s]) => s.size > 1).length; if (amb) add('link-ambiguous', 'info', `${amb} link text(s) go to different addresses.`);
   if (facts.layoutTables) add('table-role', 'warn', `${facts.layoutTables} layout table(s) lack role="presentation", so a screen reader may announce them as data tables.`);
+  if (facts.headings.length && facts.headings[0].level > 2) add('heading-start', 'info', `The first heading is an h${facts.headings[0].level} ("${facts.headings[0].text}"). Start at h1 or h2 so the order makes sense.`);
   if (!facts.headings.length) add('no-headings', 'info', 'No headings. Screen reader users skim by heading, so a short email can still benefit from one.');
   facts.headings.forEach((h, i) => { if (i && h.level - facts.headings[i - 1].level > 1) add('heading-skip', 'warn', `Heading level jumps from h${facts.headings[i - 1].level} to h${h.level} ("${h.text}").`); });
   const small = contrastLight.filter(p => p.size < 14); if (small.length) add('small-text', 'warn', `Text smaller than 14px: ${[...new Set(small.map(p => p.size + 'px'))].join(', ')} (${small.reduce((a, p) => a + p.count, 0)} element(s)).`);
