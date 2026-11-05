@@ -6,7 +6,9 @@
   "scripts": {
     "setup:hooks": "node scripts/install-hooks.js",
     "checks": "node email-checks/run.js templates/email.mjml",
-    "palette": "node email-checks/palette.js"
+    "palette": "node email-checks/palette.js",
+    "prebuild": "node scripts/make-dist.js",
+    "build": "mjml templates/email.mjml --config.validationLevel=strict -o dist/email.html"
   },
   "devDependencies": {
     "axe-core": "^4.14.0",
