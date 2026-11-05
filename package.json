@@ -4,6 +4,13 @@
   "private": true,
   "description": "Abandoned cart email for Kick Off Your English (Geo English), a test version built close to the real one: design, build, checks and tests, documented stage by stage.",
   "scripts": {
-    "setup:hooks": "node scripts/install-hooks.js"
+    "setup:hooks": "node scripts/install-hooks.js",
+    "checks": "node email-checks/run.js templates/email.mjml",
+    "palette": "node email-checks/palette.js"
+  },
+  "devDependencies": {
+    "axe-core": "^4.14.0",
+    "mjml": "^5.4.1",
+    "playwright": "^1.64.1"
   }
 }

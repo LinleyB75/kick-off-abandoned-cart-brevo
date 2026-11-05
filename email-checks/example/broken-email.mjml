@@ -1,0 +1,16 @@
+<mjml>
+  <mj-head>
+    <mj-style>
+      .x { color: red;
+    </mj-style>
+  </mj-head>
+  <mj-body>
+    <mj-section background-color="FFF">
+      <mj-column>
+        <mj-image src="https://example.com/a.png" alt="Screenshot-2024-04-04-100812" width="120rpx" />
+        <mj-text color="#aaaaaa">Light grey text on white<br></br>second line</mj-text>
+        <mj-button href="https://example.com/pay" background-color="#0057d8" background-color="#222222">Pay now</mj-button>
+        <mj-button>Go</mj-button>
+        <mj-social><mj-social-element name="facebook" href="https://example.com/f"></mj-social-element></mj-social>
+      </mj-column>
+    </mj-section>
