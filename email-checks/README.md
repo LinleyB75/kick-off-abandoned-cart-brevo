@@ -6,7 +6,7 @@ One command runs the checks and writes a report that can go straight into a blog
 ## Install (once, in the email project)
 
 ```
-npm install --save-dev mjml playwright axe-core
+npm install --save-dev mjml playwright axe-core pngjs
 npx playwright install chromium
 ```
 
@@ -15,6 +15,7 @@ npx playwright install chromium
 ```
 node email-checks/run.js templates/email.mjml
 node email-checks/palette.js "#0b0b0c" "#ffffff" "#0057d8" --min 4.5
+node email-checks/compare-light.js stages/02-fixed.mjml templates/email.mjml
 ```
 
 | Command | What it does |
@@ -23,15 +24,16 @@ node email-checks/palette.js "#0b0b0c" "#ffffff" "#0057d8" --min 4.5
 | `--out <folder>` | Writes the report in that folder instead of `reports/` |
 | `--no-browser` | Runs only the syntax checks |
 | `palette.js <colours> [--min 4.5]` | Prints the contrast ratio of every text-on-background pair, best first |
+| `compare-light.js <before> <after>` | Renders both emails in light mode at 600, 414 and 320px and counts the pixels that differ. Exits with 1 if any differ. Proves a change did not alter the light design |
 
 ## What it checks
 
 | Area | What |
 | --- | --- |
 | Syntax | The MJML strict build, then 25 source checks that strict mode does not make: unclosed and unexpected closing tags, repeated attributes, buttons with no link, social icons with no alt text, icons that make share links, colours with no `#`, invalid units, file names used as alt text, links that cannot work in an email (`#home`, `your-link`, http, placeholders), a sans-serif font that falls back to serif and the reverse, `<br></br>`, `!important` typos, unbalanced style braces, no `lang`, no title |
-| Accessibility | The built email in Chromium, in light and dark mode and at 320px. 24 axe-core rules that apply to email, plus language, title, alt text, link names, layout tables, headings, small text, emoji, a missing unsubscribe link and sideways scrolling |
+| Accessibility | The built email in Chromium, in light and dark mode and at 320px. 24 axe-core rules that apply to email, plus language, title, alt text, link names, layout tables, headings, small text, emoji, a missing unsubscribe link, sideways scrolling, and any text still on a light background in dark mode |
 | Contrast | Every piece of text against the background it really sits on, in light and dark mode. 4.5:1 for normal text, 3:1 for large text (24px, or 18.66px and bold). Text over a background image is flagged, not measured |
-| Size | The built HTML against Gmail's clipping limit of about 102 KB |
+| Size | The built HTML against Gmail's clipping limit of about 102 KB, and the style blocks against Gmail's limit of about 16,384 characters. Measured on the formatted HTML that `npm run build` writes |
 
 ## Why a strict build is not enough
 

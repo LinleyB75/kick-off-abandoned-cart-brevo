@@ -29,7 +29,7 @@ function packageVersion(entry, name) {
     findings.push(...checkSource(src));
     const mjmlPath = require.resolve('mjml', { paths: [process.cwd(), __dirname] });
     const mjml = require(mjmlPath); versions.mjml = packageVersion(mjmlPath, 'mjml');
-    const soft = await mjml(src, { validationLevel: 'soft', filePath: path.resolve(file) });
+    const soft = await mjml(src, { validationLevel: 'soft', beautify: true, filePath: path.resolve(file) });
     html = soft.html;
     try { await mjml(src, { validationLevel: 'strict', filePath: path.resolve(file) }); }
     catch (e) { strict = { ok: false, errors: (e.errors || [{ line: '', tagName: '', message: e.message }]).map(x => ({ line: x.line, tagName: x.tagName, message: x.message })) }; }

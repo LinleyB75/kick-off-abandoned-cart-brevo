@@ -55,6 +55,8 @@ function pageFacts() {
     layoutTables: [...document.querySelectorAll('table')].filter(t => !t.querySelector('th') && t.getAttribute('role') !== 'presentation').length,
     headings: [...document.querySelectorAll('h1,h2,h3,h4,h5,h6')].map(h => ({ level: +h.tagName[1], text: text(h).slice(0, 50) })),
     overflowX: document.documentElement.scrollWidth > window.innerWidth + 1,
+    styleChars: [...document.querySelectorAll('style')].map(x => x.textContent.length),
+    darkRules: [...document.styleSheets].some(sh => { try { return [...sh.cssRules].some(r => r.media && /prefers-color-scheme:\s*dark/.test(r.media.mediaText)); } catch (e) { return false; } }),
     emoji: [...new Set((document.body.innerText.match(/\p{Extended_Pictographic}/gu) || []))].filter(e => !'\u00a9\u00ae\u2122'.includes(e)),
   };
 }
@@ -105,6 +107,10 @@ function factFindings(facts, htmlBytes, contrastLight) {
   if (!facts.headings.length) add('no-headings', 'info', 'No headings. Screen reader users skim by heading, so a short email can still benefit from one.');
   facts.headings.forEach((h, i) => { if (i && h.level - facts.headings[i - 1].level > 1) add('heading-skip', 'warn', `Heading level jumps from h${facts.headings[i - 1].level} to h${h.level} ("${h.text}").`); });
   const small = contrastLight.filter(p => p.size < 14); if (small.length) add('small-text', 'warn', `Text smaller than 14px: ${[...new Set(small.map(p => p.size + 'px'))].join(', ')} (${small.reduce((a, p) => a + p.count, 0)} element(s)).`);
+  const css = facts.styleChars.reduce((a, b) => a + b, 0);
+  if (css > 16384) f.push({ area: 'size', id: 'gmail-css-limit', level: 'error', message: `${css} characters of style blocks. Gmail ignores the CSS when it is over about 16,384 characters.` });
+  else if (css > 12000) f.push({ area: 'size', id: 'gmail-css-near', level: 'warn', message: `${css} characters of style blocks, close to Gmail's limit of about 16,384.` });
+  else f.push({ area: 'size', id: 'css-ok', level: 'info', message: `${css} characters of style blocks, under Gmail's limit of about 16,384.` });
   const kb = htmlBytes / 1024;
   if (kb > 102) f.push({ area: 'size', id: 'gmail-clip', level: 'error', message: `${kb.toFixed(1)} KB. Gmail clips emails over about 102 KB and hides the rest behind "View entire message".` });
   else if (kb > 90) f.push({ area: 'size', id: 'gmail-near', level: 'warn', message: `${kb.toFixed(1)} KB is close to Gmail's 102 KB clipping limit.` });
@@ -121,6 +127,12 @@ function contrastFindings(pairs, scheme) {
   return f;
 }
 
+function darkSurfaceFindings(pairsDark, claimsDark) {
+  const lum = h => { const v = [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16) / 255).map(x => (x <= 0.03928 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4)); return 0.2126 * v[0] + 0.7152 * v[1] + 0.0722 * v[2]; };
+  const light = pairsDark.filter(p => !p.image && lum(p.bg) > 0.6);
+  if (!light.length) return [{ area: 'accessibility', id: 'dark-surfaces-ok', level: 'info', message: 'In dark mode, no text sits on a light background.' }];
+  return [{ area: 'accessibility', id: 'dark-light-surface', level: claimsDark ? 'warn' : 'info', message: `In dark mode, ${light.reduce((a, p) => a + p.count, 0)} text element(s) still sit on a light background (${[...new Set(light.map(p => p.bg))].join(', ')}), for example "${light[0].sample}".` }];
+}
 async function checkBuilt(html) {
   const { chromium } = require('playwright');
   const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined });
@@ -137,6 +149,7 @@ async function checkBuilt(html) {
     out.findings.push(...factFindings(out.facts, Buffer.byteLength(html), out.contrast.light));
     if (pf.overflowX) out.findings.push({ area: 'accessibility', id: 'overflow-320', level: 'warn', message: 'At 320px wide the email needs sideways scrolling.' });
     for (const s of ['light', 'dark']) out.findings.push(...contrastFindings(out.contrast[s], s));
+    out.findings.push(...darkSurfaceFindings(out.contrast.dark, out.facts.colourScheme || out.facts.darkRules));
     for (const s of ['light', 'dark']) for (const v of out.axe[s].violations) out.findings.push({ area: 'accessibility', id: 'axe-' + v.id, level: v.id === 'color-contrast' ? 'info' : (v.impact === 'minor' ? 'warn' : 'error'), message: `[axe, ${s}] ${v.help} (${v.count} element(s)).` });
     return out;
   } finally { await browser.close(); }
