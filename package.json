@@ -1,0 +1,9 @@
+{
+  "name": "kick-off-abandoned-cart-brevo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Abandoned cart email for Kick Off Your English (Geo English), a test version built close to the real one: design, build, checks and tests, documented stage by stage.",
+  "scripts": {
+    "setup:hooks": "node scripts/install-hooks.js"
+  }
+}
