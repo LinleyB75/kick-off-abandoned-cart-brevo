@@ -1,0 +1,37 @@
+# command:   npm test
+# run at:    2026-11-06T15:11:32.791Z
+# node:      v24.22.2
+# exit code: 0
+
+
+> kick-off-abandoned-cart-brevo@0.1.0 test
+> node scripts/test-checks.js
+
+PASS  the example data                                           passed
+PASS  firstName missing (optional)                               passed
+PASS  firstName empty (optional)                                 passed
+PASS  BREAK: productImageUrl missing                             caught
+PASS  BREAK: productName missing                                 caught
+PASS  BREAK: price missing                                       caught
+PASS  BREAK: quantity missing                                    caught
+PASS  BREAK: cartUrl missing                                     caught
+PASS  BREAK: misspelt name (productImageUrls)                    caught
+PASS  BREAK: productImageUrl is http, not https                  caught
+PASS  BREAK: productImageUrl contains a space                    caught
+PASS  BREAK: productImageUrl carries a credential in the address caught
+PASS  BREAK: productImageUrl has a username in the address       caught
+PASS  BREAK: cartUrl is http, not https                          caught
+PASS  BREAK: cartUrl contains a space                            caught
+PASS  BREAK: cartUrl carries a credential in the address         caught
+PASS  BREAK: cartUrl has a username in the address               caught
+PASS  BREAK: quantity must be a whole number from 1 to 999       caught
+PASS  BREAK: price must contain a number, for example $19.99 AUD caught
+PASS  BREAK: HTML in firstName                                   caught
+PASS  BREAK: template tags in firstName                          caught
+PASS  BREAK: a number instead of text in firstName               caught
+PASS  BREAK: firstName too long                                  caught
+PASS  BREAK: firstName looks like a card number                  caught
+PASS  BREAK: firstName looks like a Brevo key                    caught
+PASS  BREAK: params over 100 KB                                  caught
+
+26 of 26 behave as expected.

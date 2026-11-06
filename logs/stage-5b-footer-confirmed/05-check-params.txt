@@ -1,0 +1,14 @@
+# command:   npm run check-params
+# run at:    2026-11-06T15:11:32.314Z
+# node:      v24.22.2
+# exit code: 0
+
+
+> kick-off-abandoned-cart-brevo@0.1.0 check-params
+> node check-params.js
+
+Checked data/params.json against templates/email.mjml
+  required: productImageUrl, productName, price, quantity, cartUrl
+  optional: firstName
+
+OK: the names match and the values pass the safety rules.

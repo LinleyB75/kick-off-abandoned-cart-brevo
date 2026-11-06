@@ -1,0 +1,62 @@
+# command:   npm run simulate
+# run at:    2026-11-06T15:11:35.561Z
+# node:      v24.22.2
+# exit code: 0
+
+
+> kick-off-abandoned-cart-brevo@0.1.0 simulate
+> node scripts/brevo-walkthrough.js --simulated
+
+SIMULATED TESTING. Brevo's documented behaviour is simulated on your own computer. Nothing real is called.
+
+Step 7b. Brevo: Transactional > Templates > New Template, paste the HTML
+      template created, status 201, template ID 1, active: no
+
+A mistake worth knowing: sending before the template is activated
+      Using the simulated Brevo at http://127.0.0.1:62148.
+      Brevo said no. Status 400 (invalid_parameter): Template 1 was not found or is not activated
+
+Step 7b (continued). Save and Activate
+      template is now active
+
+Step 7c. npm run send:dry
+      DRY RUN. Nothing sent. This is the request to http://127.0.0.1:62148/v3/smtp/email:
+      
+        ... the JSON request ...
+
+Step 7c. npm run send:sandbox
+      Using the simulated Brevo at http://127.0.0.1:62148.
+      Sandbox: Brevo accepted the request (status 201). No email was sent and no log was made.
+      The sandbox only checks the request. It does not show how the email looks.
+      messages in the log after the sandbox call: 0 (the sandbox leaves no log)
+
+A wrong API key
+      Using the simulated Brevo at http://127.0.0.1:62148.
+      Brevo said no. Status 401 (unauthorized): Key not found
+
+Step 7c. npm run send:live
+      Using the simulated Brevo at http://127.0.0.1:62148.
+      This will SEND an email (to the simulated Brevo) to t***@example.test using template 1.
+      Type SEND to continue: Sent to t***@example.test. Status 201. Brevo messageId: <20261106151135.1.k6gvsw68@smtp-relay.simulated>
+      Accepted is not the same as delivered. Check Transactional > Logs in Brevo, then open the email in your inbox.
+
+Step 7d. Brevo's transactional log
+      found: t***  subject "Your cart is waiting"  template 1  2026-11-06T15:11:35.410Z
+
+The saved inbox message, checked:
+      PASS  No template tags left over
+      PASS  The product name and the price are in the wording
+      PASS  The quantity is in the wording
+      PASS  The heading shows the first name, or reads correctly without one
+      PASS  The Return to Your Cart button goes to the cart link
+      PASS  The Outlook button has the same cart link
+      PASS  The product picture is the address that was sent
+      PASS  No empty links
+      PASS  Icons and logos are real addresses
+      WARN  No link still points at example.com
+      open simulated-inbox/index.html to see it listed like a mailbox
+
+An optional value left out (firstName): the email must still read correctly
+      checks that failed: No link still points at example.com
+
+This was simulated testing. The real test is the same steps against your own Brevo account: npm run test:brevo

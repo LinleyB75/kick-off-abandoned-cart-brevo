@@ -1,0 +1,47 @@
+# command:   npm run verify
+# run at:    2026-11-06T15:11:36.760Z
+# node:      v24.22.2
+# exit code: 0
+
+
+> kick-off-abandoned-cart-brevo@0.1.0 verify
+> node scripts/verify-setup.js
+
+1. The files that should exist
+  OK      package.json
+  OK      .gitignore
+  OK      .env.example
+  OK      project.config.js
+  OK      check-params.js
+  OK      send.js
+  OK      data/params.json
+  OK      templates/email.mjml
+  OK      scripts/make-dist.js
+  OK      scripts/check-build.js
+  OK      scripts/test-checks.js
+  OK      scripts/test-send.js
+  OK      scripts/simulated-brevo.js
+  OK      scripts/brevo-walkthrough.js
+  OK      scripts/install-hooks.js
+  OK      scripts/verify-setup.js
+  OK      scripts/data-design.js
+  OK      scripts/record-stage.js
+  OK      docs/lab-notebook.md
+  OK      BUILD-LOG.md
+
+2. Stray files
+  OK      none found
+
+3. Git and the guard
+  OK      the pre-commit guard is installed
+  OK      .env exists and Git ignores it
+  OK      .env is not tracked
+
+4. Anything shaped like a Brevo key
+  OK      none found in the project files
+
+5. The email itself
+  OK      no REPLACE text left in the MJML
+  OK      dist/email.html is up to date
+
+All checks passed. Ready to push.

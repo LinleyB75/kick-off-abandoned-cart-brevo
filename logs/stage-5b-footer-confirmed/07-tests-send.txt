@@ -1,0 +1,26 @@
+# command:   npm run test:send
+# run at:    2026-11-06T15:11:34.509Z
+# node:      v24.22.2
+# exit code: 0
+
+
+> kick-off-abandoned-cart-brevo@0.1.0 test:send
+> node scripts/test-send.js
+
+PASS  dry run (the default): exits 0, says nothing was sent, makes no request
+PASS  dry run: the API key is never printed, and the address is masked
+PASS  sandbox: one request to /v3/smtp/email
+PASS  sandbox: the flag is in the JSON body's headers, NOT an HTTP header
+PASS  sandbox: api-key header, template ID as a number, recipient and params are right
+PASS  sandbox: says no email was sent, and the key is not printed
+PASS  live: typing anything but SEND cancels, and nothing is sent
+PASS  live: closing the prompt without answering cancels
+PASS  live: typing SEND sends exactly one request, with no sandbox flag
+PASS  live: prints the messageId and warns that accepted is not delivered
+PASS  bad params (http link): refuses before any request
+PASS  Brevo says 401: shows the status and message, exits 1, never prints the key
+PASS  missing API key: stops with a clear message, no request
+PASS  template ID that is not a number: stops, no request
+PASS  an SMTP-style key gets a warning
+
+All send.js tests passed (against a simulated Brevo server, nothing real was called).

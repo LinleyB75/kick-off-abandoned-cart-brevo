@@ -1,0 +1,8 @@
+# command:   node email-checks/compare-light.js stages/04-data-wired.mjml stages/05-footer-confirmed.mjml --params data/params.json --within-text "Rua Des Bambous"
+# run at:    2026-11-06T15:11:26.151Z
+# node:      v24.22.2
+# exit code: 0
+
+light mode at 600px: 600x2547 vs 600x2547, 2057 pixel(s) differ, in rows 2288 to 2346 and columns 265 to 572, 0 outside "Rua Des Bambous" -> CHANGED ONLY INSIDE "Rua Des Bambous"
+light mode at 414px: 414x2849 vs 414x2849, 1585 pixel(s) differ, in rows 2629 to 2663 and columns 57 to 374, 0 outside "Rua Des Bambous" -> CHANGED ONLY INSIDE "Rua Des Bambous"
+light mode at 320px: 320x2926 vs 320x2926, 1555 pixel(s) differ, in rows 2692 to 2740 and columns 25 to 286, 0 outside "Rua Des Bambous" -> CHANGED ONLY INSIDE "Rua Des Bambous"
