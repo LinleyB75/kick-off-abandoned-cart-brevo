@@ -11,7 +11,11 @@
     "build": "mjml templates/email.mjml --config.validationLevel=strict -o dist/email.html",
     "compare-light": "node email-checks/compare-light.js",
     "check-params": "node check-params.js",
-    "test": "node scripts/test-checks.js"
+    "test": "node scripts/test-checks.js",
+    "send:dry": "node send.js",
+    "send:sandbox": "node send.js --sandbox",
+    "send:live": "node send.js --live",
+    "test:send": "node scripts/test-send.js"
   },
   "devDependencies": {
     "axe-core": "^4.14.0",
@@ -19,5 +23,8 @@
     "nunjucks": "^3.2.4",
     "playwright": "^1.64.1",
     "pngjs": "^7.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1"
   }
 }
