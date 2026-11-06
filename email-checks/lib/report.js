@@ -3,9 +3,9 @@ const esc = s => String(s).replace(/\|/g, '\\|').replace(/\n/g, ' ');
 const table = (head, rows) => rows.length ? ['| ' + head.join(' | ') + ' |', '| ' + head.map(() => '---').join(' | ') + ' |', ...rows.map(r => '| ' + r.map(esc).join(' | ') + ' |')].join('\n') : '_Nothing to report._';
 const count = (list, area, level) => list.filter(f => f.area === area && f.level === level).length;
 
-function renderReport({ file, versions, strict, softErrors, findings, result }) {
+function renderReport({ file, versions, strict, softErrors, findings, result, paramsFile }) {
   const L = [];
-  L.push(`# Email checks: ${file}`, '', `Run on ${new Date().toISOString().slice(0, 10)}. MJML ${versions.mjml || 'n/a'}, axe-core ${versions.axe || 'n/a'}, Chromium for the browser checks.`, '');
+  L.push(`# Email checks: ${file}`, '', `Run on ${new Date().toISOString().slice(0, 10)}. MJML ${versions.mjml || 'n/a'}, axe-core ${versions.axe || 'n/a'}, Chromium for the browser checks.`, paramsFile ? `The email was filled in with the test data in \`${paramsFile}\` before the browser checks.` : '', '');
   const areas = [['syntax', 'Syntax'], ['accessibility', 'Accessibility'], ['contrast', 'Contrast'], ['size', 'Size']];
   L.push('## Summary', '', table(['Area', 'Errors', 'Warnings', 'Notes'], areas.map(([a, n]) => [n, count(findings, a, 'error'), count(findings, a, 'warn'), count(findings, a, 'info')])), '');
   L.push(`**Result: ${result.pass ? 'PASS' : 'FAIL'}.** ${result.errors} error(s), ${result.warnings} warning(s).`, '');

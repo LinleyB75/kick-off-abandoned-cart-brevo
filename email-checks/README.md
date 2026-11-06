@@ -6,25 +6,26 @@ One command runs the checks and writes a report that can go straight into a blog
 ## Install (once, in the email project)
 
 ```
-npm install --save-dev mjml playwright axe-core pngjs
+npm install --save-dev mjml playwright axe-core pngjs nunjucks
 npx playwright install chromium
 ```
 
 ## Run
 
 ```
-node email-checks/run.js templates/email.mjml
+node email-checks/run.js templates/email.mjml --params data/params.json
 node email-checks/palette.js "#0b0b0c" "#ffffff" "#0057d8" --min 4.5
-node email-checks/compare-light.js stages/02-fixed.mjml templates/email.mjml
+node email-checks/compare-light.js stages/03-dark-light-outlook-gmail.mjml templates/email.mjml --params data/stage4-values.json --scheme dark
 ```
 
 | Command | What it does |
 | --- | --- |
 | `run.js <email.mjml or email.html>` | Runs the checks and writes `reports/<name>-checks.md` and `.json`. Exits with 1 when anything fails, so it can stop a build |
+| `--params <data.json>` | Fills in the Brevo tags (`{{ params.x }}` and `{% if %}`) with that test data first, the way Brevo will, so the checks run on the email a customer sees. The report says which data was used |
 | `--out <folder>` | Writes the report in that folder instead of `reports/` |
 | `--no-browser` | Runs only the syntax checks |
 | `palette.js <colours> [--min 4.5]` | Prints the contrast ratio of every text-on-background pair, best first |
-| `compare-light.js <before> <after>` | Renders both emails in light mode at 600, 414 and 320px and counts the pixels that differ. Exits with 1 if any differ. Proves a change did not alter the light design |
+| `compare-light.js <before> <after> [--params data.json] [--scheme dark]` | Renders both emails at 600, 414 and 320px, in light mode or in dark mode, and counts the pixels that differ. With `--params`, both emails are filled in with the same data first, so a change that only wires in data can be compared fairly. Exits with 1 if any differ |
 
 ## What it checks
 

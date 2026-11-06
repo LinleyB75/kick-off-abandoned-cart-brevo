@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 'use strict';
-// Usage: node email-checks/run.js templates/email.mjml [--out reports] [--no-browser]
+// Usage: node email-checks/run.js templates/email.mjml [--params data/params.json] [--out reports] [--no-browser]
+// With --params, the email is filled in with that test data (as Brevo would) before the browser checks run.
 // Runs the syntax, accessibility and contrast checks and writes a report you can use in a blog post.
 const fs = require('fs'), path = require('path');
 const { checkSource } = require('./lib/syntax');
@@ -18,9 +19,11 @@ function packageVersion(entry, name) {
 
 (async () => {
   const args = process.argv.slice(2);
-  const file = args.find(a => !a.startsWith('--'));
-  const outDir = args.includes('--out') ? args[args.indexOf('--out') + 1] : 'reports';
-  if (!file || !fs.existsSync(file)) { console.error('Usage: node email-checks/run.js <email.mjml | email.html> [--out reports] [--no-browser]'); process.exit(2); }
+  const opt = name => (args.includes(name) ? args[args.indexOf(name) + 1] : null);
+  const outDir = opt('--out') || 'reports';
+  const paramsFile = opt('--params');
+  const file = args.find((a, i) => !a.startsWith('--') && !['--out', '--params'].includes(args[i - 1]));
+  if (!file || !fs.existsSync(file)) { console.error('Usage: node email-checks/run.js <email.mjml | email.html> [--params data.json] [--out reports] [--no-browser]'); process.exit(2); }
   const src = fs.readFileSync(file, 'utf8');
   const isMjml = file.toLowerCase().endsWith('.mjml');
   const findings = []; let html = src, strict = { ok: true, errors: [] }; const versions = {};
@@ -35,6 +38,10 @@ function packageVersion(entry, name) {
     catch (e) { strict = { ok: false, errors: (e.errors || [{ line: '', tagName: '', message: e.message }]).map(x => ({ line: x.line, tagName: x.tagName, message: x.message })) }; }
     for (const e of strict.errors) findings.push({ area: 'syntax', id: 'strict-build', level: 'error', message: `Strict build: ${e.message.trim()} (${e.tagName})`, line: e.line });
   }
+  if (paramsFile) {
+    const nunjucks = require(require.resolve('nunjucks', { paths: [process.cwd(), __dirname] }));
+    html = new nunjucks.Environment(null, { autoescape: true }).renderString(html, { params: JSON.parse(fs.readFileSync(paramsFile, 'utf8')) });
+  }
   try { versions.axe = require('axe-core/package.json').version; } catch (_) {}
 
   let contrast = { light: [], dark: [] };
@@ -46,7 +53,7 @@ function packageVersion(entry, name) {
   const result = { pass: errors === 0, errors, warnings, contrast };
   fs.mkdirSync(outDir, { recursive: true });
   const base = path.join(outDir, path.basename(file).replace(/\.[^.]+$/, '') + '-checks');
-  fs.writeFileSync(base + '.md', renderReport({ file, versions, strict, findings, result }));
+  fs.writeFileSync(base + '.md', renderReport({ file, versions, strict, findings, result, paramsFile }));
   fs.writeFileSync(base + '.json', JSON.stringify({ file, versions, strict, findings, contrast }, null, 2));
 
   for (const area of ['syntax', 'accessibility', 'contrast', 'size']) {
