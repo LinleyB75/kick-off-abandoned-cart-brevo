@@ -81,7 +81,7 @@
     <mj-section padding="30px" background-color="orange">
       <mj-column width="100%" background-color="#FFF" border-radius="8px" css-class="dm-white">
 
-        <mj-text align="center" font-family="Georgia, serif" font-size="22px" color="#000" line-height="1.5" css-class="dm-text"><strong>Your Cart Linley... below</strong></mj-text>
+        <mj-text align="center" font-family="Georgia, serif" font-size="22px" color="#000" line-height="1.5" css-class="dm-text"><strong>{% if params.firstName %}Your Cart {{ params.firstName }}... below{% else %}Your Cart... below{% endif %}</strong></mj-text>
 
       </mj-column>
     </mj-section>
@@ -89,22 +89,22 @@
     <mj-section padding="10px" background-color="#F0F0F0" css-class="dm-grey">
       <mj-column width="33%" background-color="#F0F0F0" css-class="dm-grey">
 
-        <mj-image width="200px" src="https://res.cloudinary.com/xrzqkwov/image/upload/Screenshot_2024-04-04_094501.png" alt="Kick Off Your English Ebook Product Image" border="0" padding="40px 10px 10px 10px" css-class="responsive-image" />
+        <mj-image width="200px" src="{{ params.productImageUrl }}" alt="{{ params.productName }}" border="0" padding="40px 10px 10px 10px" css-class="responsive-image" />
 
       </mj-column>
       <mj-column width="33%" background-color="#F0F0F0" css-class="dm-grey">
 
         <mj-text font-size="18px" line-height="1.6" css-class="dm-text">
           <h3>Item Description:</h3>
-          <p>Kick Off Your English Ebook CAT01</p>
-          <p class="price">Price<br>$19.99 AUD</p>
+          <p>{{ params.productName }}</p>
+          <p class="price">Price<br>{{ params.price }}</p>
         </mj-text>
 
       </mj-column>
       <mj-column width="33%" background-color="#F0F0F0" css-class="dm-grey">
 
         <mj-text padding-top="35px" align="center" font-size="18px" line-height="1.5" css-class="dm-text">
-          Quantity:<br>&nbsp;1
+          Quantity:<br>&nbsp;{{ params.quantity }}
         </mj-text>
 
       </mj-column>
@@ -127,7 +127,7 @@
         <mj-raw>
           <!--[if mso]>
           <tr><td align="left" style="padding:0;">
-          <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://example.com/cart" style="height:70px;width:260px;v-text-anchor:middle;" arcsize="17%" stroke="f" fillcolor="#0055FF">
+          <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{ params.cartUrl }}" style="height:70px;width:260px;v-text-anchor:middle;" arcsize="17%" stroke="f" fillcolor="#0055FF">
             <w:anchorlock/>
             <center style="color:#ffffff;font-family:Tahoma,sans-serif;font-size:20px;font-weight:bold;">Return to Your Cart</center>
           </v:roundrect>
@@ -135,7 +135,7 @@
           <![endif]-->
           <!--[if !mso]><!-->
         </mj-raw>
-        <mj-button css-class="button" href="https://example.com/cart" align="left" background-color="#0055FF" color="#fff" font-size="20px" border-radius="12px" font-family="Tahoma, sans-serif" font-weight="bold" padding="0" border="0" inner-padding="20px 35px" line-height="1.5">
+        <mj-button css-class="button" href="{{ params.cartUrl }}" align="left" background-color="#0055FF" color="#fff" font-size="20px" border-radius="12px" font-family="Tahoma, sans-serif" font-weight="bold" padding="0" border="0" inner-padding="20px 35px" line-height="1.5">
           Return to Your Cart
         </mj-button>
         <mj-raw><!--<![endif]--></mj-raw>

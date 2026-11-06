@@ -351,7 +351,7 @@
                   <tbody>
                     <tr>
                       <td align="center" class="dm-text" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                        <div style="font-family:Georgia, serif;font-size:22px;line-height:1.5;text-align:center;color:#000000;"><strong>Your Cart Linley... below</strong></div>
+                        <div style="font-family:Georgia, serif;font-size:22px;line-height:1.5;text-align:center;color:#000000;"><strong>{% if params.firstName %}Your Cart {{ params.firstName }}... below{% else %}Your Cart... below{% endif %}</strong></div>
                       </td>
                     </tr>
                   </tbody>
@@ -379,7 +379,7 @@
                           <tbody>
                             <tr>
                               <td style="width:171px;">
-                                <img alt="Kick Off Your English Ebook Product Image" src="https://res.cloudinary.com/xrzqkwov/image/upload/Screenshot_2024-04-04_094501.png" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="171" height="auto">
+                                <img alt="{{ params.productName }}" src="{{ params.productImageUrl }}" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="171" height="auto">
                               </td>
                             </tr>
                           </tbody>
@@ -397,8 +397,8 @@
                       <td align="left" class="dm-text" style="font-size:0px;padding:10px 25px;word-break:break-word;">
                         <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:18px;line-height:1.6;text-align:left;color:#000000;">
                           <h3>Item Description:</h3>
-                          <p>Kick Off Your English Ebook CAT01</p>
-                          <p class="price">Price<br>$19.99 AUD</p>
+                          <p>{{ params.productName }}</p>
+                          <p class="price">Price<br>{{ params.price }}</p>
                         </div>
                       </td>
                     </tr>
@@ -411,7 +411,7 @@
                   <tbody>
                     <tr>
                       <td align="center" class="dm-text" style="font-size:0px;padding:10px 25px;padding-top:35px;word-break:break-word;">
-                        <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:18px;line-height:1.5;text-align:center;color:#000000;">Quantity:<br>&nbsp;1</div>
+                        <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:18px;line-height:1.5;text-align:center;color:#000000;">Quantity:<br>&nbsp;{{ params.quantity }}</div>
                       </td>
                     </tr>
                   </tbody>
@@ -460,14 +460,14 @@
                         <table border="0" cellpadding="0" cellspacing="0" role="presentation" style width="100%">
                           <tbody>
                             <!-- Outlook desktop gets the VML button (rounded corners). Every other app gets the normal button.
-             Keep the link and the words the same in both. --><!--[if mso]><tr><td align="left" style="padding:0;"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://example.com/cart" style="height:70px;width:260px;v-text-anchor:middle;" arcsize="17%" stroke="f" fillcolor="#0055FF"><w:anchorlock/><center style="color:#ffffff;font-family:Tahoma,sans-serif;font-size:20px;font-weight:bold;">Return to Your Cart</center></v:roundrect></td></tr><![endif]-->
+             Keep the link and the words the same in both. --><!--[if mso]><tr><td align="left" style="padding:0;"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{ params.cartUrl }}" style="height:70px;width:260px;v-text-anchor:middle;" arcsize="17%" stroke="f" fillcolor="#0055FF"><w:anchorlock/><center style="color:#ffffff;font-family:Tahoma,sans-serif;font-size:20px;font-weight:bold;">Return to Your Cart</center></v:roundrect></td></tr><![endif]-->
                             <!--[if !mso]><!-->
                             <tr>
                               <td align="left" class="button" style="font-size:0px;padding:0;word-break:break-word;">
                                 <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
                                   <tbody>
                                     <tr>
-                                      <td align="center" bgcolor="#0055FF" role="presentation" style="border:0;border-radius:12px;cursor:auto;mso-padding-alt:20px 35px;background:#0055FF;" valign="middle"><a href="https://example.com/cart" style="display:inline-block;background:#0055FF;color:#ffffff;font-family:Tahoma, sans-serif;font-size:20px;font-weight:bold;line-height:1.5;margin:0;text-decoration:none;text-transform:none;padding:20px 35px;mso-padding-alt:0px;border-radius:12px;" target="_blank"> Return to Your Cart </a></td>
+                                      <td align="center" bgcolor="#0055FF" role="presentation" style="border:0;border-radius:12px;cursor:auto;mso-padding-alt:20px 35px;background:#0055FF;" valign="middle"><a href="{{ params.cartUrl }}" style="display:inline-block;background:#0055FF;color:#ffffff;font-family:Tahoma, sans-serif;font-size:20px;font-weight:bold;line-height:1.5;margin:0;text-decoration:none;text-transform:none;padding:20px 35px;mso-padding-alt:0px;border-radius:12px;" target="_blank"> Return to Your Cart </a></td>
                                     </tr>
                                   </tbody>
                                 </table>
