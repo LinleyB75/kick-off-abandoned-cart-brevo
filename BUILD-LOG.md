@@ -156,10 +156,10 @@ The rule: **light mode must not change.** I built the comparison test first, and
 Dark text ratios: `#f2f2f2` on `#1c1c1e` is 15.2:1, on `#2a2a2d` 12.78:1, and white on `#1c1c1e` 17.01:1. The lowest in the whole email is still 5.05:1.
 
 **How it works:**
-- `color-scheme` and `supported-color-schemes` tags, and `:root`, tell apps the email supports both modes.
+- `color-scheme` and `supported-color-schemes` tags, and `:root`, tell email applications that the email supports both modes.
 - Dark rules sit inside `@media (prefers-color-scheme: dark)`, so light mode cannot change.
-- Outlook.com and the Outlook apps mark their dark mode with `data-ogsb` and `data-ogsc`, so they get their own rules.
-- Outlook desktop gets a **VML button** (260 × 70px, `arcsize` 17%) for rounded corners. Every other app gets the normal button. The two are wrapped in conditional comments so only one shows.
+- Outlook.com and the Outlook applications mark their dark mode with `data-ogsb` and `data-ogsc`, so they get their own rules.
+- Outlook desktop gets a **VML button** (260 × 70px, `arcsize` 17%) for rounded corners. Every other application gets the normal button. The two are wrapped in conditional comments so only one shows.
 - Apple Mail and iOS: `format-detection` and `x-apple-data-detectors` stop the address and phone number turning into blue links.
 - Gmail: the style blocks are 3,562 characters against a limit of about 16,384, and the built file is 44.0 KB against the 102 KB clipping limit.
 
@@ -273,19 +273,21 @@ Saved as `plain-html/email.html`. Recorded in [`logs/stage-5c-plain-html/`](logs
 
 ## Stage 6: Brevo
 
-**Done so far.** I made an API key in Brevo with a short expiry and put it only in `.env`, which Git ignores and the guard blocks. I made the email in Brevo from the built `dist/email.html`, activated it, and put its template ID and my test address in `.env`. Then, in order: `npm run send:dry`, `npm run send:sandbox`, and `npm run test:brevo`, which sends one real email to my own address after I type SEND.
+**Done.** I made an API key in Brevo with a short expiry and put it only in `.env`, which Git ignores and the guard blocks. I made the email in Brevo from the built `dist/email.html`, activated it, and put its template ID and my test address in `.env`. Then, in order: `npm run send:dry`, `npm run send:sandbox`, and `npm run test:brevo`, which sends one real email to my own address after I type SEND.
 
 Brevo's current documentation agrees with how the send script works: the sandbox flag goes in the JSON `headers` object, and the sandbox only checks the request, so how the email looks has to be tested with a real send. It also says that Brevo's IP security can reject a request from an address it does not know once its learning phase ends, and that adding the address under Security, Authorized IPs fixes it.
 
-**What I saw in the real inbox.** The email arrived in my own inbox, and everything in it was as it should be. I found no problems. This is one inbox, so the other email clients are still stage 7.
+**What I saw in the real inbox.** The email arrived in my own inbox, and everything in it was as it should be. I found no problems. That is one inbox. The other clients are in stage 7.
 
-## Stage 7: real email clients (not started)
+## Stage 7: real email clients
 
-Planned: test in the clients customers use, in light and dark mode, with Gmail and Outlook first. Record: what each client did, what needed fixing, and what stayed untested.
+I sent the real test email, through my own Brevo account, to my own addresses and opened it in Gmail on the web, Gmail on my phone and Apple Mail, in light and dark mode. What each one did, and the pictures, are in [`evidence/stage-7-clients/RESULTS.md`](evidence/stage-7-clients/RESULTS.md).
 
-## Stage 8: handoff (not started)
+**Not tested:** Outlook, in any version, and other clients such as Yahoo. I decided to stop here. The Outlook button and the Outlook dark-mode rules are written and checked in Chromium, but they have never been seen in real Outlook, and this log says so.
 
-Planned: what the client's developer receives, what they supply, and the template ID in their own account.
+## Stage 8: handoff
+
+Written as one page for the client's developer: [`docs/handoff.md`](docs/handoff.md). It says what they receive, how to set the email up in Brevo, what their application sends, what they supply, what is still open with the client, and what was and was not tested, Outlook included.
 
 ---
 
@@ -305,10 +307,9 @@ Planned: what the client's developer receives, what they supply, and the templat
 
 - **Real addresses.** The cart link, four social links and three footer links are placeholders on `example.com`.
 - **An unsubscribe link.** A commercial email usually needs one. It is platform-specific, so it is decided with the client.
-- **Brevo's own handling** of the first-name fallback and of special characters, which only the real send shows. The inbox observations above settle it.
 - **Multi-product carts.** The email shows one product. The client should say whether that is enough.
-- **Images with white backgrounds** in dark mode.
-- **Real Outlook and Gmail.** Neither can be tested here.
+- **Images with white backgrounds** in dark mode. The Gmail and Apple Mail results are in `evidence/stage-7-clients/RESULTS.md`.
+- **Real Outlook.** Not tested. The rounded Outlook button and the Outlook dark-mode rules are unproven.
 
 ## Where everything is saved
 
@@ -319,9 +320,11 @@ Planned: what the client's developer receives, what they supply, and the templat
 | The report the checks wrote at each stage | `reports/` |
 | The raw output of every command, with the time and the exit code, and a summary | `logs/`, starting at [`logs/INDEX.md`](logs/INDEX.md) |
 | Pictures of the email in light and dark mode, at 600px and 320px | `evidence/` |
+| The email in real clients | `evidence/stage-7-clients/` |
 | The experiments and measurements behind each decision | [`docs/lab-notebook.md`](docs/lab-notebook.md) |
 | The decisions, the numbers and the mistakes | This file |
 | The values the email takes, for the developer handoff | [`docs/data-design.md`](docs/data-design.md) |
+| One page for the client's developer | [`docs/handoff.md`](docs/handoff.md) |
 | The order things happened in, one commit per stage | The Git history |
 
 The pictures use the real images from the network, so they show the email as a reader would see it. The comparison tests use grey squares in place of the images, so that only layout and colour are compared.

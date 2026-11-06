@@ -6,7 +6,7 @@ I design, develop, program and test the email end to end, and I write my side of
 
 **The email in this repository is a test version.** I built it for this project and made it as close to the real email as I can, so that every check and test here is meaningful. The client's original source files are not published.
 
-**This repository is public and every stage is documented. Read [`BUILD-LOG.md`](BUILD-LOG.md) from the top: it is the story of the build, with the numbers. The raw output behind every number is in [`logs/`](logs/INDEX.md), and the experiments are in the [lab notebook](docs/lab-notebook.md).**
+**This repository is public and every stage is documented. Read [`BUILD-LOG.md`](BUILD-LOG.md) from the top: it is the story of the build, with the numbers. The raw output behind every number is in [`logs/`](logs/INDEX.md), and the experiments are in the [lab notebook](docs/lab-notebook.md). If you are the client's developer, start with [`docs/handoff.md`](docs/handoff.md).**
 
 ## Who does what
 
@@ -17,7 +17,7 @@ I design, develop, program and test the email end to end, and I write my side of
 | The values the email needs, and the rules for each one: [`docs/data-design.md`](docs/data-design.md) | Me |
 | My side of the API: the request, a Node.js reference for the send step, and the checks that refuse bad data | Me |
 | The email set up in Brevo and tested, including a real send to my own inbox | Me |
-| Testing in real email clients, in light and dark mode | Me |
+| Testing in real email clients, in light and dark mode | Me, for Gmail and Apple Mail. Outlook is not tested |
 | Connecting the application, and deciding when the email is sent | Your developer |
 | Sending the real values: the customer, the product and the cart link | Your developer |
 | The Brevo API key, which never goes in this repository | Your developer |
@@ -41,8 +41,8 @@ I design, develop, program and test the email end to end, and I write my side of
 | 5b | The footer matches the client's finished emails | Done: 2 lines changed, differences only inside the footer |
 | 5c | The same email as plain, hand-written HTML | Done: passes the same checks, 0 pixels differ from the MJML build |
 | 6 | Brevo: the email, the API call, sandbox, a real send to my own inbox | Done: the real email arrived as it should |
-| 7 | Real email clients, light and dark | Not started |
-| 8 | Handoff to the client's developer | Not started |
+| 7 | Real email clients, light and dark | Done for Gmail and Apple Mail. Outlook not tested |
+| 8 | Handoff to the client's developer | Done: [`docs/handoff.md`](docs/handoff.md) |
 
 ## Quick start
 
@@ -79,12 +79,13 @@ npm run record -- stage-name --pipeline    saves the raw output and pictures for
 | `project.config.js` | The one settings file: the values, their rules, and what the tests look for |
 | `data/` | Made-up test data. `stage4-values.json` holds the exact values typed into the stage 4 email, for the comparison |
 | `docs/data-design.md` | The table of values for the developer handoff, generated |
+| `docs/handoff.md` | One page for the client's developer: what they receive, set up, send and supply |
 | `check-params.js`, `send.js` | The data checks, and the send script with its dry-run, sandbox and live modes |
 | `scripts/` | The tests, the simulated Brevo, the recorder, the Git guard and the setup check |
 | `stages/` | The email as it was at the end of each stage, so any change can be compared |
 | `reports/` | The report the checks wrote at each stage |
 | `logs/` | The raw output of every command at every stage, with the time and the exit code. Start at `logs/INDEX.md` |
-| `evidence/` | Pictures of the email at each stage, in light and dark mode, at 600px and 320px |
+| `evidence/` | Pictures of the email at each stage, in light and dark mode, at 600px and 320px. `evidence/stage-7-clients/` holds the pictures from real email clients |
 | `docs/lab-notebook.md` | The experiments and measurements behind each decision |
 | `email-checks/` | The checks kit: syntax, accessibility, contrast, palette and the comparison test |
 | `BUILD-LOG.md` | Every stage: what I did, why, the numbers, the decisions and the mistakes |
