@@ -1,0 +1,8 @@
+# command:   node email-checks/compare-light.js stages/02-fixed.mjml stages/03-dark-light-outlook-gmail.mjml --scheme dark
+# run at:    2026-11-06T15:00:05.268Z
+# node:      v24.22.2
+# exit code: 1
+
+dark mode at 600px: 600x2547 vs 600x2547, 649804 pixel(s) differ, in rows 0 to 2012 and columns 0 to 599 -> DIFFERENT
+dark mode at 414px: 414x2849 vs 414x2849, 537662 pixel(s) differ, in rows 0 to 2163 and columns 0 to 413 -> DIFFERENT
+dark mode at 320px: 320x2926 vs 320x2926, 416537 pixel(s) differ, in rows 0 to 2216 and columns 0 to 319 -> DIFFERENT

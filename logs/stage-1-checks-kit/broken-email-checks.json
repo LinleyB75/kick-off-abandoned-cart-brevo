@@ -1,0 +1,348 @@
+{
+  "file": "email-checks/example/broken-email.mjml",
+  "versions": {
+    "mjml": "5.4.1",
+    "axe": "4.14.0"
+  },
+  "strict": {
+    "ok": false,
+    "errors": [
+      {
+        "line": 8,
+        "tagName": "mj-section",
+        "message": "Attribute background-color has invalid value: FFF for type Color "
+      },
+      {
+        "line": 10,
+        "tagName": "mj-image",
+        "message": "Attribute width has invalid value: 120rpx for type Unit, only accepts (px) units and 1 value(s)"
+      }
+    ]
+  },
+  "findings": [
+    {
+      "area": "syntax",
+      "id": "colour-no-hash",
+      "level": "error",
+      "message": "<mj-section> background-color=\"FFF\" has no # in front of the hex value.",
+      "line": 8
+    },
+    {
+      "area": "syntax",
+      "id": "unit-invalid",
+      "level": "error",
+      "message": "<mj-image> width=\"120rpx\" uses rpx, which is not a CSS unit.",
+      "line": 10
+    },
+    {
+      "area": "syntax",
+      "id": "image-alt-filename",
+      "level": "warn",
+      "message": "An mj-image uses a file name as its alt text (\"Screenshot-2024-04-04-100812\"). A screen reader will read it out.",
+      "line": 10
+    },
+    {
+      "area": "syntax",
+      "id": "repeated-attribute",
+      "level": "error",
+      "message": "<mj-button> repeats the attribute \"background-color\". Only the first one is used, so the second is silently ignored.",
+      "line": 12
+    },
+    {
+      "area": "syntax",
+      "id": "placeholder-link",
+      "level": "warn",
+      "message": "A link still points at a placeholder address (https://example.com/pay).",
+      "line": 12
+    },
+    {
+      "area": "syntax",
+      "id": "button-no-link",
+      "level": "error",
+      "message": "An mj-button has no link, so it is drawn as a button that goes nowhere.",
+      "line": 13
+    },
+    {
+      "area": "syntax",
+      "id": "social-share-link",
+      "level": "warn",
+      "message": "The \"facebook\" icon makes a share link, not a link to your page. Use name=\"facebook-noshare\" to link to your own page.",
+      "line": 14
+    },
+    {
+      "area": "syntax",
+      "id": "social-no-alt",
+      "level": "error",
+      "message": "A social icon link (facebook) has no alt text, so a screen reader announces only \"link\". Add alt=\"Facebook\" or similar.",
+      "line": 14
+    },
+    {
+      "area": "syntax",
+      "id": "placeholder-link",
+      "level": "warn",
+      "message": "A link still points at a placeholder address (https://example.com/f).",
+      "line": 14
+    },
+    {
+      "area": "syntax",
+      "id": "unclosed-tag",
+      "level": "error",
+      "message": "<mjml> is never closed.",
+      "line": 1
+    },
+    {
+      "area": "syntax",
+      "id": "unclosed-tag",
+      "level": "error",
+      "message": "<mj-body> is never closed.",
+      "line": 7
+    },
+    {
+      "area": "syntax",
+      "id": "br-closing-tag",
+      "level": "warn",
+      "message": "<br></br> is read by browsers as two line breaks. Use <br /> once.",
+      "line": 11
+    },
+    {
+      "area": "syntax",
+      "id": "style-braces",
+      "level": "error",
+      "message": "A style block has 1 \"{\" and 0 \"}\". The browser drops every rule after the break.",
+      "line": 3
+    },
+    {
+      "area": "syntax",
+      "id": "no-lang",
+      "level": "warn",
+      "message": "No lang attribute on <mjml>. MJML then writes lang=\"und\", and screen readers have to guess the language.",
+      "line": 1
+    },
+    {
+      "area": "syntax",
+      "id": "no-title",
+      "level": "warn",
+      "message": "No <mj-title>, so the built email has no document title.",
+      "line": 1
+    },
+    {
+      "area": "syntax",
+      "id": "no-preview",
+      "level": "info",
+      "message": "No <mj-preview>, so inbox apps show the first lines of the body as the preview text.",
+      "line": 1
+    },
+    {
+      "area": "syntax",
+      "id": "strict-build",
+      "level": "error",
+      "message": "Strict build: Attribute background-color has invalid value: FFF for type Color (mj-section)",
+      "line": 8
+    },
+    {
+      "area": "syntax",
+      "id": "strict-build",
+      "level": "error",
+      "message": "Strict build: Attribute width has invalid value: 120rpx for type Unit, only accepts (px) units and 1 value(s) (mj-image)",
+      "line": 10
+    },
+    {
+      "area": "accessibility",
+      "id": "lang-und",
+      "level": "warn",
+      "message": "lang=\"und\" means \"undetermined\". Set the real language so screen readers pronounce the text correctly."
+    },
+    {
+      "area": "accessibility",
+      "id": "title-missing",
+      "level": "warn",
+      "message": "The built email has no <title>."
+    },
+    {
+      "area": "accessibility",
+      "id": "colour-scheme-missing",
+      "level": "info",
+      "message": "No color-scheme meta tag. Apps will not know the email was designed for dark mode."
+    },
+    {
+      "area": "accessibility",
+      "id": "image-alt-filename",
+      "level": "warn",
+      "message": "1 image(s) use a file name as alt text."
+    },
+    {
+      "area": "accessibility",
+      "id": "image-no-size",
+      "level": "info",
+      "message": "1 image(s) have no width and height, so the layout can jump as they load."
+    },
+    {
+      "area": "accessibility",
+      "id": "no-unsubscribe",
+      "level": "info",
+      "message": "No unsubscribe link. Marketing emails usually need one. Transactional emails usually do not. Check the rules where your customers are."
+    },
+    {
+      "area": "accessibility",
+      "id": "link-no-name",
+      "level": "error",
+      "message": "1 link(s) have no accessible name."
+    },
+    {
+      "area": "accessibility",
+      "id": "link-placeholder",
+      "level": "warn",
+      "message": "2 link(s) still point at a placeholder address."
+    },
+    {
+      "area": "accessibility",
+      "id": "no-headings",
+      "level": "info",
+      "message": "No headings. Screen reader users skim by heading, so a short email can still benefit from one."
+    },
+    {
+      "area": "accessibility",
+      "id": "small-text",
+      "level": "warn",
+      "message": "Text smaller than 14px: 13px (3 element(s))."
+    },
+    {
+      "area": "size",
+      "id": "css-ok",
+      "level": "info",
+      "message": "1082 characters of style blocks, under Gmail's limit of about 16,384."
+    },
+    {
+      "area": "size",
+      "id": "size-ok",
+      "level": "info",
+      "message": "8.7 KB, under Gmail's 102 KB clipping limit."
+    },
+    {
+      "area": "contrast",
+      "id": "contrast-fail",
+      "level": "error",
+      "message": "[light] #aaaaaa on #ffffff is 2.32:1, needs 4.5:1 (\"Light grey text on white second line\", 1 element(s))."
+    },
+    {
+      "area": "contrast",
+      "id": "contrast-fail",
+      "level": "error",
+      "message": "[dark] #aaaaaa on #ffffff is 2.32:1, needs 4.5:1 (\"Light grey text on white second line\", 1 element(s))."
+    },
+    {
+      "area": "accessibility",
+      "id": "dark-light-surface",
+      "level": "info",
+      "message": "In dark mode, 1 text element(s) still sit on a light background (#ffffff), for example \"Light grey text on white second line\"."
+    },
+    {
+      "area": "accessibility",
+      "id": "axe-color-contrast",
+      "level": "info",
+      "message": "[axe, light] Elements must meet minimum color contrast ratio thresholds (1 element(s))."
+    },
+    {
+      "area": "accessibility",
+      "id": "axe-document-title",
+      "level": "error",
+      "message": "[axe, light] Documents must have <title> element to aid in navigation (1 element(s))."
+    },
+    {
+      "area": "accessibility",
+      "id": "axe-link-name",
+      "level": "error",
+      "message": "[axe, light] Links must have discernible text (1 element(s))."
+    },
+    {
+      "area": "accessibility",
+      "id": "axe-color-contrast",
+      "level": "info",
+      "message": "[axe, dark] Elements must meet minimum color contrast ratio thresholds (1 element(s))."
+    },
+    {
+      "area": "accessibility",
+      "id": "axe-document-title",
+      "level": "error",
+      "message": "[axe, dark] Documents must have <title> element to aid in navigation (1 element(s))."
+    },
+    {
+      "area": "accessibility",
+      "id": "axe-link-name",
+      "level": "error",
+      "message": "[axe, dark] Links must have discernible text (1 element(s))."
+    }
+  ],
+  "contrast": {
+    "light": [
+      {
+        "fg": "#aaaaaa",
+        "bg": "#ffffff",
+        "ratio": 2.32,
+        "large": false,
+        "size": 13,
+        "count": 1,
+        "sample": "Light grey text on white second line",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#ffffff",
+        "bg": "#0057d8",
+        "ratio": 6.26,
+        "large": false,
+        "size": 13,
+        "count": 1,
+        "sample": "Pay now",
+        "image": false,
+        "isLink": true
+      },
+      {
+        "fg": "#ffffff",
+        "bg": "#414141",
+        "ratio": 10.21,
+        "large": false,
+        "size": 13,
+        "count": 1,
+        "sample": "Go",
+        "image": false,
+        "isLink": false
+      }
+    ],
+    "dark": [
+      {
+        "fg": "#aaaaaa",
+        "bg": "#ffffff",
+        "ratio": 2.32,
+        "large": false,
+        "size": 13,
+        "count": 1,
+        "sample": "Light grey text on white second line",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#ffffff",
+        "bg": "#0057d8",
+        "ratio": 6.26,
+        "large": false,
+        "size": 13,
+        "count": 1,
+        "sample": "Pay now",
+        "image": false,
+        "isLink": true
+      },
+      {
+        "fg": "#ffffff",
+        "bg": "#414141",
+        "ratio": 10.21,
+        "large": false,
+        "size": 13,
+        "count": 1,
+        "sample": "Go",
+        "image": false,
+        "isLink": false
+      }
+    ]
+  }
+}

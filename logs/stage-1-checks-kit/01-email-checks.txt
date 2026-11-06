@@ -1,0 +1,40 @@
+# command:   node email-checks/run.js email-checks/example/broken-email.mjml --out logs\stage-1-checks-kit
+# run at:    2026-11-06T14:59:10.825Z
+# node:      v24.22.2
+# exit code: 1
+
+
+SYNTAX: 10 error(s), 7 warning(s)
+  ERROR line 8: <mj-section> background-color="FFF" has no # in front of the hex value.
+  ERROR line 10: <mj-image> width="120rpx" uses rpx, which is not a CSS unit.
+  warn  line 10: An mj-image uses a file name as its alt text ("Screenshot-2024-04-04-100812"). A screen reader will read it out.
+  ERROR line 12: <mj-button> repeats the attribute "background-color". Only the first one is used, so the second is silently ignored.
+  warn  line 12: A link still points at a placeholder address (https://example.com/pay).
+  ERROR line 13: An mj-button has no link, so it is drawn as a button that goes nowhere.
+  warn  line 14: The "facebook" icon makes a share link, not a link to your page. Use name="facebook-noshare" to link to your own page.
+  ERROR line 14: A social icon link (facebook) has no alt text, so a screen reader announces only "link". Add alt="Facebook" or similar.
+  warn  line 14: A link still points at a placeholder address (https://example.com/f).
+  ERROR line 1: <mjml> is never closed.
+  ERROR line 7: <mj-body> is never closed.
+  warn  line 11: <br></br> is read by browsers as two line breaks. Use <br /> once.
+  ... and 5 more in the report
+
+ACCESSIBILITY: 5 error(s), 5 warning(s)
+  warn  lang="und" means "undetermined". Set the real language so screen readers pronounce the text correctly.
+  warn  The built email has no <title>.
+  warn  1 image(s) use a file name as alt text.
+  ERROR 1 link(s) have no accessible name.
+  warn  2 link(s) still point at a placeholder address.
+  warn  Text smaller than 14px: 13px (3 element(s)).
+  ERROR [axe, light] Documents must have <title> element to aid in navigation (1 element(s)).
+  ERROR [axe, light] Links must have discernible text (1 element(s)).
+  ERROR [axe, dark] Documents must have <title> element to aid in navigation (1 element(s)).
+  ERROR [axe, dark] Links must have discernible text (1 element(s)).
+
+CONTRAST: 2 error(s), 0 warning(s)
+  ERROR [light] #aaaaaa on #ffffff is 2.32:1, needs 4.5:1 ("Light grey text on white second line", 1 element(s)).
+  ERROR [dark] #aaaaaa on #ffffff is 2.32:1, needs 4.5:1 ("Light grey text on white second line", 1 element(s)).
+
+SIZE: 0 error(s), 0 warning(s)
+
+FAIL: 17 error(s), 12 warning(s). Report: logs\stage-1-checks-kit\broken-email-checks.md

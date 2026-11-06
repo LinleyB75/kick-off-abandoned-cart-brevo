@@ -1,0 +1,8 @@
+# command:   node email-checks/compare-light.js stages/01-draft-as-received.mjml stages/02-fixed.mjml --scheme dark
+# run at:    2026-11-06T14:59:45.017Z
+# node:      v24.22.2
+# exit code: 1
+
+dark mode at 600px: 600x2547 vs 600x2547, 228673 pixel(s) differ, in rows 924 to 2546 and columns 0 to 599 -> DIFFERENT
+dark mode at 414px: 440x2822 vs 414x2849, the page sizes differ -> DIFFERENT
+dark mode at 320px: 440x2814 vs 320x2926, the page sizes differ -> DIFFERENT

@@ -1,0 +1,40 @@
+# command:   node email-checks/run.js stages/01-draft-as-received.mjml --out logs\stage-2-first-check
+# run at:    2026-11-06T14:59:24.939Z
+# node:      v24.22.2
+# exit code: 1
+
+
+SYNTAX: 12 error(s), 4 warning(s)
+  ERROR line 99: An mj-button has no link, so it is drawn as a button that goes nowhere.
+  warn  line 99: font-family "Tahoma, serif" is a sans-serif font that falls back to serif. If it is missing, the text switches to a serif face. End the list with sans-serif.
+  warn  line 128: The "facebook" icon makes a share link, not a link to your page. Use name="facebook-noshare" to link to your own page.
+  ERROR line 128: A social icon link (facebook) has no alt text, so a screen reader announces only "link". Add alt="Facebook" or similar.
+  ERROR line 128: A link uses "your-facebook-link", which is not a full address, so it cannot work in an email. Use a full https:// address.
+  warn  line 129: The "twitter" icon makes a share link, not a link to your page. Use name="twitter-noshare" to link to your own page.
+  ERROR line 129: A social icon link (twitter) has no alt text, so a screen reader announces only "link". Add alt="Facebook" or similar.
+  ERROR line 129: A link uses "your-twitter-link", which is not a full address, so it cannot work in an email. Use a full https:// address.
+  ERROR line 130: A social icon link (instagram) has no alt text, so a screen reader announces only "link". Add alt="Facebook" or similar.
+  ERROR line 130: A link uses "your-instagram-link", which is not a full address, so it cannot work in an email. Use a full https:// address.
+  ERROR line 131: A social icon link (youtube) has no alt text, so a screen reader announces only "link". Add alt="Facebook" or similar.
+  ERROR line 131: A link uses "your-youtube-link", which is not a full address, so it cannot work in an email. Use a full https:// address.
+  ... and 4 more in the report
+
+ACCESSIBILITY: 5 error(s), 3 warning(s)
+  warn  lang="und" means "undetermined". Set the real language so screen readers pronounce the text correctly.
+  ERROR 3 link(s) point at a spot on the page (#...), which goes nowhere in an email.
+  ERROR 2 link(s) are not full addresses (for example "your-facebook-link"), so they cannot work in an email.
+  ERROR 4 link(s) have no accessible name.
+  warn  1 link(s) still point at a placeholder address.
+  warn  At 320px wide the email needs sideways scrolling.
+  ERROR [axe, light] Links must have discernible text (4 element(s)).
+  ERROR [axe, dark] Links must have discernible text (4 element(s)).
+
+CONTRAST: 4 error(s), 0 warning(s)
+  ERROR [light] #ffa500 on #4c78a3 is 2.35:1, needs 4.5:1 ("Kick Off Your English", 1 element(s)).
+  ERROR [light] #ffd166 on #4c78a3 is 3.22:1, needs 4.5:1 ("© Kick Off Your English 1 Rua Des Bambous, F", 2 element(s)).
+  ERROR [dark] #ffa500 on #4c78a3 is 2.35:1, needs 4.5:1 ("Kick Off Your English", 1 element(s)).
+  ERROR [dark] #ffd166 on #4c78a3 is 3.22:1, needs 4.5:1 ("© Kick Off Your English 1 Rua Des Bambous, F", 2 element(s)).
+
+SIZE: 0 error(s), 0 warning(s)
+
+FAIL: 21 error(s), 7 warning(s). Report: logs\stage-2-first-check\01-draft-as-received-checks.md

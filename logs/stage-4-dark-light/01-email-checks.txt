@@ -1,0 +1,24 @@
+# command:   node email-checks/run.js stages/03-dark-light-outlook-gmail.mjml --out logs\stage-4-dark-light
+# run at:    2026-11-06T14:59:57.288Z
+# node:      v24.22.2
+# exit code: 0
+
+
+SYNTAX: 0 error(s), 8 warning(s)
+  warn  line 138: A link still points at a placeholder address (https://example.com/cart).
+  warn  line 168: A link still points at a placeholder address (https://example.com/facebook).
+  warn  line 169: A link still points at a placeholder address (https://example.com/twitter).
+  warn  line 170: A link still points at a placeholder address (https://example.com/instagram).
+  warn  line 171: A link still points at a placeholder address (https://example.com/youtube).
+  warn  line 181: A link still points at a placeholder address (https://example.com/privacy).
+  warn  line 181: A link still points at a placeholder address (https://example.com/web-version).
+  warn  line 181: A link still points at a placeholder address (https://example.com/contact).
+
+ACCESSIBILITY: 0 error(s), 1 warning(s)
+  warn  8 link(s) still point at a placeholder address.
+
+CONTRAST: 0 error(s), 0 warning(s)
+
+SIZE: 0 error(s), 0 warning(s)
+
+PASS: 0 error(s), 9 warning(s). Report: logs\stage-4-dark-light\03-dark-light-outlook-gmail-checks.md

@@ -1,0 +1,16 @@
+# command:   node email-checks/run.js plain-html/email.html --params data/params.json --out logs\stage-5c-plain-html
+# run at:    2026-11-06T15:00:36.093Z
+# node:      v24.22.2
+# exit code: 0
+
+
+SYNTAX: 0 error(s), 0 warning(s)
+
+ACCESSIBILITY: 0 error(s), 1 warning(s)
+  warn  7 link(s) still point at a placeholder address.
+
+CONTRAST: 0 error(s), 0 warning(s)
+
+SIZE: 0 error(s), 0 warning(s)
+
+PASS: 0 error(s), 1 warning(s). Report: logs\stage-5c-plain-html\email-checks.md

@@ -1,0 +1,8 @@
+# command:   node email-checks/compare-light.js stages/02-fixed.mjml stages/03-dark-light-outlook-gmail.mjml
+# run at:    2026-11-06T15:00:01.281Z
+# node:      v24.22.2
+# exit code: 0
+
+light mode at 600px: 600x2547 vs 600x2547, 0 pixel(s) differ -> IDENTICAL
+light mode at 414px: 414x2849 vs 414x2849, 0 pixel(s) differ -> IDENTICAL
+light mode at 320px: 320x2926 vs 320x2926, 0 pixel(s) differ -> IDENTICAL
