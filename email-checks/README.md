@@ -25,7 +25,7 @@ node email-checks/compare-light.js stages/03-dark-light-outlook-gmail.mjml templ
 | `--out <folder>` | Writes the report in that folder instead of `reports/` |
 | `--no-browser` | Runs only the syntax checks |
 | `palette.js <colours> [--min 4.5]` | Prints the contrast ratio of every text-on-background pair, best first |
-| `compare-light.js <before> <after> [--params data.json] [--scheme dark]` | Renders both emails at 600, 414 and 320px, in light mode or in dark mode, and counts the pixels that differ. With `--params`, both emails are filled in with the same data first, so a change that only wires in data can be compared fairly. Exits with 1 if any differ |
+| `compare-light.js <before> <after> [--params data.json] [--scheme dark] [--within-text words]` | Renders both emails at 600, 414 and 320px, in light mode or in dark mode, and counts the pixels that differ, and where. With `--params`, both emails are filled in with the same data first, so a change that only wires in data can be compared fairly. With `--within-text` (words in the part that was meant to change) or `--within` (a CSS selector), differences are allowed only inside that part: it exits with 1 if a single pixel moves outside it. Otherwise it exits with 1 if any pixel differs |
 
 ## What it checks
 
