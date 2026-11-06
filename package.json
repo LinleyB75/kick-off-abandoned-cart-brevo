@@ -9,7 +9,9 @@
     "palette": "node email-checks/palette.js",
     "prebuild": "node scripts/make-dist.js",
     "build": "mjml templates/email.mjml --config.validationLevel=strict -o dist/email.html",
-    "compare-light": "node email-checks/compare-light.js"
+    "compare-light": "node email-checks/compare-light.js",
+    "check-params": "node check-params.js",
+    "test": "node scripts/test-checks.js"
   },
   "devDependencies": {
     "axe-core": "^4.14.0",
