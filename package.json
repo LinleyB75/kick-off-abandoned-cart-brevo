@@ -15,7 +15,10 @@
     "send:dry": "node send.js",
     "send:sandbox": "node send.js --sandbox",
     "send:live": "node send.js --live",
-    "test:send": "node scripts/test-send.js"
+    "test:send": "node scripts/test-send.js",
+    "simulated-brevo": "node scripts/simulated-brevo.js",
+    "simulate": "node scripts/brevo-walkthrough.js --simulated",
+    "test:brevo": "node scripts/brevo-walkthrough.js"
   },
   "devDependencies": {
     "axe-core": "^4.14.0",
