@@ -22,7 +22,9 @@
     "postbuild": "node scripts/check-build.js",
     "verify": "node scripts/verify-setup.js",
     "data-design": "node scripts/data-design.js",
-    "checks:syntax": "node email-checks/run.js templates/email.mjml --no-browser"
+    "checks:syntax": "node email-checks/run.js templates/email.mjml --no-browser",
+    "checks:html": "node email-checks/run.js plain-html/email.html --params data/params.json",
+    "compare-html": "node email-checks/compare-light.js templates/email.mjml plain-html/email.html --params data/params.json"
   },
   "devDependencies": {
     "axe-core": "^4.14.0",

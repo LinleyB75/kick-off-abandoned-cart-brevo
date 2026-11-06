@@ -29,7 +29,7 @@ const WIDTHS = [600, 414, 320];
     const env = new nunjucks.Environment(null, { autoescape: true }), params = JSON.parse(fs.readFileSync(paramsFile, 'utf8'));
     fill = html => env.renderString(html, { params });
   }
-  const build = async f => fill((await mjml(fs.readFileSync(f, 'utf8'), { validationLevel: 'soft', beautify: true, filePath: path.resolve(f) })).html);
+  const build = async f => fill(f.toLowerCase().endsWith('.html') ? fs.readFileSync(f, 'utf8') : (await mjml(fs.readFileSync(f, 'utf8'), { validationLevel: 'soft', beautify: true, filePath: path.resolve(f) })).html);
   const [htmlA, htmlB] = [await build(a), await build(b)];
   const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined });
   const shot = async (html, width) => {
