@@ -1,0 +1,321 @@
+{
+  "file": "stages/03-dark-light-outlook-gmail.mjml",
+  "versions": {
+    "mjml": "5.4.1",
+    "axe": "4.14.0"
+  },
+  "strict": {
+    "ok": true,
+    "errors": []
+  },
+  "findings": [
+    {
+      "area": "syntax",
+      "id": "placeholder-link",
+      "level": "warn",
+      "message": "A link still points at a placeholder address (https://example.com/cart).",
+      "line": 138
+    },
+    {
+      "area": "syntax",
+      "id": "placeholder-link",
+      "level": "warn",
+      "message": "A link still points at a placeholder address (https://example.com/facebook).",
+      "line": 168
+    },
+    {
+      "area": "syntax",
+      "id": "placeholder-link",
+      "level": "warn",
+      "message": "A link still points at a placeholder address (https://example.com/twitter).",
+      "line": 169
+    },
+    {
+      "area": "syntax",
+      "id": "placeholder-link",
+      "level": "warn",
+      "message": "A link still points at a placeholder address (https://example.com/instagram).",
+      "line": 170
+    },
+    {
+      "area": "syntax",
+      "id": "placeholder-link",
+      "level": "warn",
+      "message": "A link still points at a placeholder address (https://example.com/youtube).",
+      "line": 171
+    },
+    {
+      "area": "syntax",
+      "id": "placeholder-link",
+      "level": "warn",
+      "message": "A link still points at a placeholder address (https://example.com/privacy).",
+      "line": 181
+    },
+    {
+      "area": "syntax",
+      "id": "placeholder-link",
+      "level": "warn",
+      "message": "A link still points at a placeholder address (https://example.com/web-version).",
+      "line": 181
+    },
+    {
+      "area": "syntax",
+      "id": "placeholder-link",
+      "level": "warn",
+      "message": "A link still points at a placeholder address (https://example.com/contact).",
+      "line": 181
+    },
+    {
+      "area": "accessibility",
+      "id": "image-no-size",
+      "level": "info",
+      "message": "4 image(s) have no width and height, so the layout can jump as they load."
+    },
+    {
+      "area": "accessibility",
+      "id": "emoji",
+      "level": "info",
+      "message": "Emoji in the text (💡 📩). Screen readers read each one aloud by name, for example \"light bulb\"."
+    },
+    {
+      "area": "accessibility",
+      "id": "no-unsubscribe",
+      "level": "info",
+      "message": "No unsubscribe link. Marketing emails usually need one. Transactional emails usually do not. Check the rules where your customers are."
+    },
+    {
+      "area": "accessibility",
+      "id": "link-placeholder",
+      "level": "warn",
+      "message": "8 link(s) still point at a placeholder address."
+    },
+    {
+      "area": "accessibility",
+      "id": "heading-start",
+      "level": "info",
+      "message": "The first heading is an h3 (\"Item Description:\"). Start at h1 or h2 so the order makes sense."
+    },
+    {
+      "area": "size",
+      "id": "css-ok",
+      "level": "info",
+      "message": "3562 characters of style blocks, under Gmail's limit of about 16,384."
+    },
+    {
+      "area": "size",
+      "id": "size-ok",
+      "level": "info",
+      "message": "44.0 KB, under Gmail's 102 KB clipping limit."
+    },
+    {
+      "area": "accessibility",
+      "id": "dark-surfaces-ok",
+      "level": "info",
+      "message": "In dark mode, no text sits on a light background."
+    }
+  ],
+  "contrast": {
+    "light": [
+      {
+        "fg": "#ffd166",
+        "bg": "#35597f",
+        "ratio": 5.05,
+        "large": false,
+        "size": 15,
+        "count": 3,
+        "sample": "© Kick Off Your English 1 Rua Des Bambous, F",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#ffffff",
+        "bg": "#0055ff",
+        "ratio": 5.61,
+        "large": true,
+        "size": 20,
+        "count": 1,
+        "sample": "Return to Your Cart",
+        "image": false,
+        "isLink": true
+      },
+      {
+        "fg": "#000000",
+        "bg": "#ee7226",
+        "ratio": 7.07,
+        "large": false,
+        "size": 16,
+        "count": 1,
+        "sample": "Follow us on:",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#ffffff",
+        "bg": "#35597f",
+        "ratio": 7.27,
+        "large": false,
+        "size": 15,
+        "count": 7,
+        "sample": "Data Privacy | WebView | Contact Us",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#333333",
+        "bg": "#ffffff",
+        "ratio": 12.63,
+        "large": true,
+        "size": 24,
+        "count": 2,
+        "sample": "Still Want This Product?💡",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#000000",
+        "bg": "#f0f0f0",
+        "ratio": 18.43,
+        "large": true,
+        "size": 21.06,
+        "count": 1,
+        "sample": "Item Description:",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#000000",
+        "bg": "#f0f0f0",
+        "ratio": 18.43,
+        "large": false,
+        "size": 18,
+        "count": 3,
+        "sample": "Kick Off Your English Ebook CAT01",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#000000",
+        "bg": "#ffffff",
+        "ratio": 21,
+        "large": true,
+        "size": 22,
+        "count": 1,
+        "sample": "Your Cart Linley... below",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#000000",
+        "bg": "#ffffff",
+        "ratio": 21,
+        "large": false,
+        "size": 18,
+        "count": 3,
+        "sample": "If you would like to return to your cart ple",
+        "image": false,
+        "isLink": false
+      }
+    ],
+    "dark": [
+      {
+        "fg": "#ffd166",
+        "bg": "#35597f",
+        "ratio": 5.05,
+        "large": false,
+        "size": 15,
+        "count": 3,
+        "sample": "© Kick Off Your English 1 Rua Des Bambous, F",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#ffffff",
+        "bg": "#0055ff",
+        "ratio": 5.61,
+        "large": true,
+        "size": 20,
+        "count": 1,
+        "sample": "Return to Your Cart",
+        "image": false,
+        "isLink": true
+      },
+      {
+        "fg": "#000000",
+        "bg": "#ee7226",
+        "ratio": 7.07,
+        "large": false,
+        "size": 16,
+        "count": 1,
+        "sample": "Follow us on:",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#ffffff",
+        "bg": "#35597f",
+        "ratio": 7.27,
+        "large": false,
+        "size": 15,
+        "count": 7,
+        "sample": "Data Privacy | WebView | Contact Us",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#f2f2f2",
+        "bg": "#2a2a2d",
+        "ratio": 12.78,
+        "large": true,
+        "size": 21.06,
+        "count": 1,
+        "sample": "Item Description:",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#f2f2f2",
+        "bg": "#2a2a2d",
+        "ratio": 12.78,
+        "large": false,
+        "size": 18,
+        "count": 3,
+        "sample": "Kick Off Your English Ebook CAT01",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#f2f2f2",
+        "bg": "#1c1c1e",
+        "ratio": 15.2,
+        "large": true,
+        "size": 22,
+        "count": 3,
+        "sample": "Still Want This Product?💡",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#f2f2f2",
+        "bg": "#1c1c1e",
+        "ratio": 15.2,
+        "large": false,
+        "size": 18,
+        "count": 2,
+        "sample": "If you would like to return to your cart ple",
+        "image": false,
+        "isLink": false
+      },
+      {
+        "fg": "#ffffff",
+        "bg": "#1c1c1e",
+        "ratio": 17.01,
+        "large": false,
+        "size": 18,
+        "count": 1,
+        "sample": "support@geoenglish.com.br",
+        "image": false,
+        "isLink": true
+      }
+    ]
+  }
+}

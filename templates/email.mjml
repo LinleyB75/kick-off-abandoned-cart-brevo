@@ -4,6 +4,15 @@
     <!-- Title -->
     <mj-title>Your cart at Kick Off → Your English</mj-title>
 
+    <!-- Dark and light mode: tell email apps this email supports both.
+         The format-detection tag stops iOS from turning the address and phone number into blue links. -->
+    <mj-raw>
+      <meta name="color-scheme" content="light dark">
+      <meta name="supported-color-schemes" content="light dark">
+      <meta name="x-apple-disable-message-reformatting">
+      <meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no">
+    </mj-raw>
+
     <!-- Media queries / Custom CSS -->
     <mj-style inline="inline">
       @media screen and (max-width: 767px) {
@@ -12,66 +21,89 @@
       }
       }
     </mj-style>
+
+    <mj-style>
+      :root { color-scheme: light dark; supported-color-schemes: light dark; }
+
+      /* Apple Mail and iOS: keep detected addresses and numbers looking like the text around them */
+      a[x-apple-data-detectors] { color: inherit !important; text-decoration: none !important; font-size: inherit !important; font-family: inherit !important; font-weight: inherit !important; line-height: inherit !important; }
+
+      /* Dark mode: apps that follow the device setting. Light mode is untouched. */
+      @media (prefers-color-scheme: dark) {
+        body, .dm-page { background-color: #121212 !important; }
+        .dm-white, .dm-white > table, .dm-white > table > tbody > tr > td { background: #1c1c1e !important; background-color: #1c1c1e !important; }
+        .dm-grey, .dm-grey > table, .dm-grey > table > tbody > tr > td { background: #2a2a2d !important; background-color: #2a2a2d !important; }
+        .dm-text div { color: #f2f2f2 !important; }
+        .dm-text a { color: #ffffff !important; }
+      }
+
+      /* Outlook.com and the Outlook apps mark their dark mode with attributes */
+      [data-ogsb] .dm-page { background-color: #121212 !important; }
+      [data-ogsb] .dm-white, [data-ogsb] .dm-white > table, [data-ogsb] .dm-white > table > tbody > tr > td { background-color: #1c1c1e !important; }
+      [data-ogsb] .dm-grey, [data-ogsb] .dm-grey > table, [data-ogsb] .dm-grey > table > tbody > tr > td { background-color: #2a2a2d !important; }
+      [data-ogsc] .dm-text div { color: #f2f2f2 !important; }
+      [data-ogsc] .dm-text a { color: #ffffff !important; }
+    </mj-style>
   </mj-head>
 
-  <mj-body background-color="#dfe0e7">
+  <mj-body background-color="#dfe0e7" css-class="dm-page">
     <!-- Logo Section -->
     <mj-section padding="0">
-      <mj-column background-color="#fff" padding="0" width="100%">
+      <mj-column background-color="#fff" padding="0" width="100%" css-class="dm-white">
 
         <mj-image src="https://res.cloudinary.com/xrzqkwov/image/upload/Gemini_Generated_Image_ehknlgehknlgehkn.png" alt="Kick Off → Your English logo" width="280px" border="0" padding="10px" css-class="responsive-image" border-radius="15px" />
 
       </mj-column>
     </mj-section>
 
-    <mj-section background-color="#FFF" padding="0px">
+    <mj-section background-color="#FFF" padding="0px" css-class="dm-white">
       <mj-column padding="0px">
 
         <mj-image src="https://res.cloudinary.com/xrzqkwov/image/upload/Kick-Off_Your_English_Cart_Reminder1.png" alt="Cart Reminder Banner" border="0" padding="0" width="600px" css-class="responsive-image" />
 
-        <mj-text align="center" color="#333" font-family="Georgia, serif" font-size="30px" padding-top="25px"><strong>Still Want This Product?💡</strong></mj-text>
+        <mj-text align="center" color="#333" font-family="Georgia, serif" font-size="30px" padding-top="25px" css-class="dm-text"><strong>Still Want This Product?💡</strong></mj-text>
 
       </mj-column>
     </mj-section>
     <!-- End of Logo Section -->
 
-    <mj-section background-color="#FFF" border="0" padding="15px">
+    <mj-section background-color="#FFF" border="0" padding="15px" css-class="dm-white">
       <mj-column width="500px">
 
         <mj-image align="center" width="180px" src="https://res.cloudinary.com/xrzqkwov/image/upload/Glossy_Fast_Shopping_Cart_Icon1.png" alt="Shopping cart icon" border="0" />
 
-        <mj-text color="#333" align="center" font-family="Georgia, serif" font-size="24px">You still have items in your shopping cart</mj-text>
+        <mj-text color="#333" align="center" font-family="Georgia, serif" font-size="24px" css-class="dm-text">You still have items in your shopping cart</mj-text>
 
       </mj-column>
     </mj-section>
 
     <!-- Main text info-->
     <mj-section padding="30px" background-color="orange">
-      <mj-column width="100%" background-color="#FFF" border-radius="8px">
+      <mj-column width="100%" background-color="#FFF" border-radius="8px" css-class="dm-white">
 
-        <mj-text align="center" font-family="Georgia, serif" font-size="22px" color="#000" line-height="1.5"><strong>Your Cart Linley... below</strong></mj-text>
+        <mj-text align="center" font-family="Georgia, serif" font-size="22px" color="#000" line-height="1.5" css-class="dm-text"><strong>Your Cart Linley... below</strong></mj-text>
 
       </mj-column>
     </mj-section>
 
-    <mj-section padding="10px" background-color="#F0F0F0">
-      <mj-column width="33%" background-color="#F0F0F0">
+    <mj-section padding="10px" background-color="#F0F0F0" css-class="dm-grey">
+      <mj-column width="33%" background-color="#F0F0F0" css-class="dm-grey">
 
         <mj-image width="200px" src="https://res.cloudinary.com/xrzqkwov/image/upload/Screenshot_2024-04-04_094501.png" alt="Kick Off Your English Ebook Product Image" border="0" padding="40px 10px 10px 10px" css-class="responsive-image" />
 
       </mj-column>
-      <mj-column width="33%" background-color="#F0F0F0">
+      <mj-column width="33%" background-color="#F0F0F0" css-class="dm-grey">
 
-        <mj-text font-size="18px" line-height="1.6">
+        <mj-text font-size="18px" line-height="1.6" css-class="dm-text">
           <h3>Item Description:</h3>
           <p>Kick Off Your English Ebook CAT01</p>
           <p class="price">Price<br>$19.99 AUD</p>
         </mj-text>
 
       </mj-column>
-      <mj-column width="33%" background-color="#F0F0F0">
+      <mj-column width="33%" background-color="#F0F0F0" css-class="dm-grey">
 
-        <mj-text padding-top="35px" align="center" font-size="18px" line-height="1.5">
+        <mj-text padding-top="35px" align="center" font-size="18px" line-height="1.5" css-class="dm-text">
           Quantity:<br>&nbsp;1
         </mj-text>
 
@@ -79,26 +111,40 @@
     </mj-section>
 
     <mj-section padding="0">
-      <mj-column width="100%" background-color="#FFF" padding="30px">
+      <mj-column width="100%" background-color="#FFF" padding="30px" css-class="dm-white">
 
-        <mj-text align="left" font-size="18px" line-height="1.6" font-family="Georgia, serif" color="#000" padding="0px" font-weight="bold">
+        <mj-text align="left" font-size="18px" line-height="1.6" font-family="Georgia, serif" color="#000" padding="0px" font-weight="bold" css-class="dm-text">
           If you would like to return to your cart please click on the button below.
         </mj-text>
 
       </mj-column>
 
       <!-- Responsive Button Update -->
-      <mj-column width="100%" background-color="#FFF" padding="15px 30px">
+      <mj-column width="100%" background-color="#FFF" padding="15px 30px" css-class="dm-white">
 
+        <!-- Outlook desktop gets the VML button (rounded corners). Every other app gets the normal button.
+             Keep the link and the words the same in both. -->
+        <mj-raw>
+          <!--[if mso]>
+          <tr><td align="left" style="padding:0;">
+          <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://example.com/cart" style="height:70px;width:260px;v-text-anchor:middle;" arcsize="17%" stroke="f" fillcolor="#0055FF">
+            <w:anchorlock/>
+            <center style="color:#ffffff;font-family:Tahoma,sans-serif;font-size:20px;font-weight:bold;">Return to Your Cart</center>
+          </v:roundrect>
+          </td></tr>
+          <![endif]-->
+          <!--[if !mso]><!-->
+        </mj-raw>
         <mj-button css-class="button" href="https://example.com/cart" align="left" background-color="#0055FF" color="#fff" font-size="20px" border-radius="12px" font-family="Tahoma, sans-serif" font-weight="bold" padding="0" border="0" inner-padding="20px 35px" line-height="1.5">
           Return to Your Cart
         </mj-button>
+        <mj-raw><!--<![endif]--></mj-raw>
 
       </mj-column>
 
-      <mj-column width="100%" background-color="#FFF">
+      <mj-column width="100%" background-color="#FFF" css-class="dm-white">
 
-        <mj-text align="left" font-size="18px" line-height="1.5" font-family="Georgia, serif" color="#000" padding="35px">
+        <mj-text align="left" font-size="18px" line-height="1.5" font-family="Georgia, serif" color="#000" padding="35px" css-class="dm-text">
           If you have questions please do not hesitate to contact us or just reply to this email, or contact: 📩 <a href="mailto:support@geoenglish.com.br" style="text-decoration: underline; color: #000;">support@geoenglish.com.br</a>
         </mj-text>
 
