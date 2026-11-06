@@ -18,7 +18,11 @@
     "test:send": "node scripts/test-send.js",
     "simulated-brevo": "node scripts/simulated-brevo.js",
     "simulate": "node scripts/brevo-walkthrough.js --simulated",
-    "test:brevo": "node scripts/brevo-walkthrough.js"
+    "test:brevo": "node scripts/brevo-walkthrough.js",
+    "postbuild": "node scripts/check-build.js",
+    "verify": "node scripts/verify-setup.js",
+    "data-design": "node scripts/data-design.js",
+    "checks:syntax": "node email-checks/run.js templates/email.mjml --no-browser"
   },
   "devDependencies": {
     "axe-core": "^4.14.0",
